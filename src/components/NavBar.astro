@@ -1,0 +1,26 @@
+---
+import Logo from "../assets/IMG_9954.png"
+---
+
+<nav class="fixed top-0 left-0 w-full z-[1000] bg-[#1A1A1D]/90 backdrop-blur-md border-b border-white/5">
+    <div class="flex justify-between items-center h-20 pl-15 pr-10">
+      <a href="/" class="group relative flex items-center justify-center">
+        <img 
+          src={Logo.src} 
+          alt="NSNS Logo" 
+          class="h-25 w-auto z-15 transition-all duration-500 group-hover:opacity-50 group-hover:filter"
+        />
+      </a>
+      <ul class="flex space-x-5 justify-end">
+        <li>
+          <a href="/" class="text-white/80 hover:text-white transition-colors duration-300">Blog</a>
+        </li>
+        <li>
+          <a href="/nosotros" class="text-white/80 hover:text-white transition-colors duration-300">Nosotros</a>
+        </li>
+        <li>
+          <a href="/servicios" class="text-white/80 hover:text-white transition-colors duration-300">Servicios</a>
+        </li>
+      </ul>     
+    </div>
+</nav>

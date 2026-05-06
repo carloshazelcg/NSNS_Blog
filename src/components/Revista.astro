@@ -1,0 +1,158 @@
+---
+---
+
+<div class="magazine-viewport flex flex-col items-center justify-center w-full min-h-screen bg-[#1A1A1D] overflow-hidden p-10 select-none"> 
+  <div class="relative" style="perspective: 2000px;">
+    <div class="book relative w-[450px] h-[600px] preserve-3d">
+      
+      <div class="page absolute inset-0 z-[40] preserve-3d origin-left">
+        <div class="page-side front absolute inset-0 backface-hidden bg-[#A30000] flex flex-col items-center justify-center p-10 border-r border-white/10 shadow-2xl">
+          <h1 class="text-white text-7xl font-black italic tracking-tighter text-center leading-none uppercase">NSNS</h1>
+          <p class="text-white/50 mt-6 font-mono text-[10px] tracking-[0.3em] animate-pulse text-center">DESLIZA HACIA LA IZQUIERDA<br/>PARA ABRIR</p>
+        </div>
+        <div class="page-side back absolute inset-0 backface-hidden bg-[#242427] rotate-y-180"></div>
+      </div>
+
+      <div class="page absolute inset-0 z-[30] preserve-3d origin-left">
+        <div class="page-side front absolute inset-0 backface-hidden bg-[#242427] border-l border-white/5 p-12 flex flex-col justify-between shadow-[-10px_0_30px_rgba(0,0,0,0.5)]">
+          <div>
+            <span class="text-[#A30000] font-mono text-[10px] tracking-widest">[ SECCIÓN_01 ]</span>
+            <h2 class="text-white text-5xl font-black italic uppercase leading-none mt-4">R&B<br/>VIBES</h2>
+          </div>
+          <div class="h-48 bg-black/40 border border-dashed border-[#6B6B6B]/30 flex items-center justify-center font-mono text-[#6B6B6B] text-[10px]">
+             PREVIEW_AUDIO_01
+          </div>
+        </div>
+        <div class="page-side back absolute inset-0 backface-hidden bg-[#242427] rotate-y-180"></div>
+      </div>
+
+      <div class="page absolute inset-0 z-[20] preserve-3d origin-left">
+        <div class="page-side front absolute inset-0 backface-hidden bg-[#242427] border-l border-white/5 p-12 flex flex-col justify-between shadow-[-10px_0_30px_rgba(0,0,0,0.5)]">
+          <div>
+            <span class="text-[#A30000] font-mono text-[10px] tracking-widest">[ SECCIÓN_02 ]</span>
+            <h2 class="text-white text-5xl font-black italic uppercase leading-none mt-4">DANCE<br/>HALL</h2>
+          </div>
+          <div class="h-48 bg-black/40 border border-dashed border-[#6B6B6B]/30 flex items-center justify-center font-mono text-[#6B6B6B] text-[10px]">
+             PREVIEW_AUDIO_02
+          </div>
+        </div>
+        <div class="page-side back absolute inset-0 backface-hidden bg-[#1A1A1D] rotate-y-180"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .magazine-viewport {
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .magazine-viewport:active {
+    cursor: grabbing;
+  }
+
+  .preserve-3d { 
+    transform-style: preserve-3d; 
+  }
+
+  .backface-hidden { 
+    backface-visibility: hidden; 
+    -webkit-backface-visibility: hidden;
+    background-clip: padding-box;
+  }
+
+  .rotate-y-180 { 
+    transform: rotateY(180deg); 
+  }
+  
+  .page {
+    will-change: transform;
+    -webkit-font-smoothing: antialiased;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  let currentPage = 0;
+  const pages = document.querySelectorAll('.page');
+  const viewport = document.querySelector('.magazine-viewport') as HTMLElement;
+  
+  let startX = 0;
+  let isDragging = false;
+
+  const next = () => {
+    if (currentPage < pages.length) {
+      const targetPage = pages[currentPage] as HTMLElement;
+      
+      gsap.to(targetPage, {
+        rotationY: -180,
+        duration: 1.2,
+        ease: "power2.inOut",
+        onStart: () => {
+          // Se mantiene arriba mientras vuela
+          targetPage.style.zIndex = "100";
+        },
+        onComplete: () => {
+          targetPage.style.zIndex = (10 + currentPage).toString();
+        }
+      });
+      currentPage++;
+    }
+  };
+
+  const prev = () => {
+    if (currentPage > 0) {
+      currentPage--;
+      const targetPage = pages[currentPage] as HTMLElement;
+      
+      gsap.to(targetPage, {
+        rotationY: 0,
+        duration: 1.2,
+        ease: "power2.inOut",
+        onStart: () => {
+          // Mientras regresa, debe volar por encima de todo
+          targetPage.style.zIndex = "100";
+        },
+        onComplete: () => {
+          targetPage.style.zIndex = (40 - currentPage).toString();
+        }
+      });
+    }
+  };
+
+  if (viewport) {
+    viewport.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      const endX = e.clientX;
+      const diff = startX - endX;
+      if (Math.abs(diff) > 70) {
+        diff > 0 ? next() : prev();
+      }
+      isDragging = false;
+    });
+
+    viewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      if (Math.abs(diff) > 70) {
+        diff > 0 ? next() : prev();
+      }
+    }, { passive: true });
+
+    viewport.addEventListener('dragstart', (e) => e.preventDefault());
+  }
+</script>
