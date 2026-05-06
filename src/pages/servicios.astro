@@ -5,12 +5,12 @@ import NavBar from "../components/NavBar.astro";
 
 <Layout tittle="Servicios">
     <NavBar />
-    <div class="text-center px-4">
-    <p class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-pulse" style="color: #A30000;">
-        Próximamente...
-    </p>
-    <div class="h-1 w-24 sm:w-32 mx-auto animate-bounce" style="background-color: #A30000;"></div>
-    <p class="text-base sm:text-lg mt-8" style="color: #CFCFCF;">
-        Estamos trabajando en algo especial...
-    </p>
+    <main class="flex items-center justify-center min-h-screen px-4" style="background-color: #1A1A1D;">
+        <div class="text-center">
+            <p class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-pulse" style="color: #A30000; display: block;">Próximamente...</p>
+            <div class="h-1 w-24 sm:w-32 mx-auto animate-bounce" style="background-color: #A30000;">
+            </div>
+            <p class="text-base sm:text-lg mt-8 font-medium" style="color: #CFCFCF;">Estamos trabajando en algo especial...</p>
+        </div>
+    </main>
 </Layout>
