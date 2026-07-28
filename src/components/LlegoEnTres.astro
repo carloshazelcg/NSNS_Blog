@@ -1,0 +1,239 @@
+---
+---
+  <div id="scroll-container" class="bg-[#1A1A1D] w-full min-h-[700vh] relative">
+    
+    <section id="fixed-viewport" class="w-full h-screen fixed top-0 left-0 flex flex-col items-center justify-center px-4 z-40">
+      
+      <div id="intro-text" class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-50 cursor-pointer select-none">
+        <p class="text-[#A30000] font-mono text-xs tracking-[0.4em] uppercase mb-4">NSNS PRESENTA</p>
+        <h2 class="text-white text-4xl md:text-7xl font-black italic tracking-tighter uppercase max-w-3xl leading-none hover:scale-105 transition-transform duration-300">
+          ME VINE EN 3...
+        </h2>
+        <p class="text-[#6B6B6B] font-mono text-[10px] tracking-widest uppercase mt-12 animate-pulse">
+          [ Haz clic o toca aquí para iniciar ]
+        </p>
+      </div>
+
+      <div class="w-full max-w-[480px] flex flex-col gap-6 relative">
+        
+        <div id="typing-remitente" class="opacity-0 translate-y-12 flex justify-start w-full hidden">
+          <div class="bg-[#323236]/30 text-[#6B6B6B] font-mono text-xs p-2 px-5 rounded-full border border-white/5 flex items-center gap-1 shadow-lg">
+            <span class="animate-bounce">.</span>
+            <span class="animate-bounce [animation-delay:0.2s]">.</span>
+            <span class="animate-bounce [animation-delay:0.4s]">.</span>
+          </div>
+        </div>
+
+        <div id="msg-recibido" class="opacity-0 translate-y-12 flex justify-start w-full relative hidden">
+          <div class="bg-[#323236] text-[#FFFFFF] font-mono text-xs md:text-sm p-4 rounded-2xl rounded-tl-none shadow-2xl max-w-[85%] border border-white/5 relative">
+            <div class="absolute top-0 left-[-8px] w-0 h-0 border-t-[12px] border-t-[#323236] border-l-[12px] border-l-transparent"></div>
+            ¿Dónde estás?
+            <span class="block text-[8px] text-[#A1A1A5] text-left mt-2 font-sans tracking-widest">16:20</span>
+          </div>
+        </div>
+
+        <div id="typing-respuesta" class="opacity-0 translate-y-12 flex justify-end w-full hidden">
+          <div class="bg-[#A30000]/10 text-[#A30000] font-mono text-xs p-2 px-5 rounded-full border border-[#A30000]/20 flex items-center gap-1 shadow-lg">
+            <span class="animate-bounce">.</span>
+            <span class="animate-bounce [animation-delay:0.2s]">.</span>
+            <span class="animate-bounce [animation-delay:0.4s]">.</span>
+          </div>
+        </div>
+
+        <div id="msg-enviado" class="opacity-0 translate-y-12 flex justify-end w-full hidden">
+          <div class="bg-[#A30000] text-white font-mono text-xs md:text-sm p-4 rounded-2xl rounded-tr-none shadow-2xl max-w-[85%] relative">
+            <div class="absolute top-0 right-[-8px] w-0 h-0 border-t-[12px] border-t-[#A30000] border-r-[12px] border-r-transparent"></div>
+            Llego en 3
+            <span class="block text-[8px] text-white/50 text-right mt-2 font-sans tracking-widest">16:21 ✓✓</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="scroll-instruction" class="absolute bottom-12 text-center w-full left-0 pointer-events-none opacity-0">
+        <p class="text-[#6B6B6B] font-mono text-[9px] tracking-[0.3em] uppercase animate-pulse">
+          [ Continúa bajando para responder ]
+        </p>
+      </div>
+
+    </section>
+
+  </div>
+
+<style>
+  #fixed-viewport {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  const sndRecibido = new Audio('/sonidos/recibido.mp3');
+  const sndTyping = new Audio('/sonidos/typing.mp3');
+  const sndEnviado = new Audio('/sonidos/enviado.mp3');
+
+  sndTyping.loop = true;
+  sndTyping.volume = 0.3;
+
+  const introText = document.querySelector("#intro-text") as HTMLElement;
+  const typingRemitente = document.querySelector("#typing-remitente") as HTMLElement;
+  const msgRecibido = document.querySelector("#msg-recibido") as HTMLElement;
+  const typingRespuesta = document.querySelector("#typing-respuesta") as HTMLElement;
+  const msgEnviado = document.querySelector("#msg-enviado") as HTMLElement;
+  const scrollInstruction = document.querySelector("#scroll-instruction") as HTMLElement;
+
+  let currentStep = 0;
+  let accumulatedScroll = 0;
+  const SCROLL_NEEDED = 100;
+
+  if (introText) {
+    introText.addEventListener('click', () => {
+      if (currentStep !== 0) return;
+      currentStep = 1;
+
+      [sndRecibido, sndTyping, sndEnviado].forEach(audio => {
+        audio.play().then(() => {
+          audio.pause();
+          audio.currentTime = 0;
+        }).catch(() => {});
+      });
+
+      triggerFirstMessageSequence();
+    });
+  }
+
+  function handleUserScroll(deltaY: number) {
+    if (deltaY <= 0) return;
+
+    if (currentStep === 2) {
+      accumulatedScroll += deltaY;
+
+      if (accumulatedScroll >= SCROLL_NEEDED) {
+        currentStep = 3;
+        accumulatedScroll = 0;
+        triggerResponseSequence();
+      }
+    }
+  }
+
+  window.addEventListener('wheel', (e) => {
+    handleUserScroll(e.deltaY);
+  }, { passive: true });
+
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    const touchEndY = e.touches[0].clientY;
+    const deltaY = touchStartY - touchEndY;
+    touchStartY = touchEndY;
+    if (deltaY > 0) {
+      handleUserScroll(deltaY * 1.5);
+    }
+  }, { passive: true });
+
+  function triggerFirstMessageSequence() {
+    if (!introText) return;
+
+    gsap.to(introText, {
+      opacity: 0,
+      y: -30,
+      duration: 0.5,
+      onComplete: () => {
+        introText.classList.add('hidden');
+        
+        if (typingRemitente) {
+          typingRemitente.classList.remove('hidden');
+          gsap.to(typingRemitente, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            onComplete: () => {
+              setTimeout(() => {
+                gsap.to(typingRemitente, {
+                  opacity: 0,
+                  y: -10,
+                  duration: 0.2,
+                  onComplete: () => {
+                    typingRemitente.classList.add('hidden');
+                    
+                    if (msgRecibido) {
+                      msgRecibido.classList.remove('hidden');
+                      gsap.to(msgRecibido, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.7,
+                        ease: "power2.out",
+                        onStart: () => {
+                          sndRecibido.currentTime = 0;
+                          sndRecibido.play().catch(console.error);
+                        },
+                        onComplete: () => {
+                          if (scrollInstruction) {
+                            gsap.to(scrollInstruction, { opacity: 1, duration: 0.4 });
+                          }
+                          currentStep = 2;
+                        }
+                      });
+                    }
+                  }
+                });
+              }, 1500);
+            }
+          });
+        }
+      }
+    });
+  }
+
+  function triggerResponseSequence() {
+    if (scrollInstruction) gsap.to(scrollInstruction, { opacity: 0, duration: 0.3 });
+
+    if (typingRespuesta) {
+      typingRespuesta.classList.remove('hidden');
+      gsap.to(typingRespuesta, { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.4,
+        onStart: () => { 
+          sndTyping.currentTime = 0;
+          sndTyping.play().catch(console.error); 
+        }
+      });
+    }
+
+    setTimeout(() => {
+      sndTyping.pause();
+      sndTyping.currentTime = 0;
+
+      if (typingRespuesta) {
+        gsap.to(typingRespuesta, {
+          opacity: 0,
+          y: -10,
+          duration: 0.2,
+          onComplete: () => {
+            typingRespuesta.classList.add('hidden');
+            
+            if (msgEnviado) {
+              msgEnviado.classList.remove('hidden');
+              gsap.to(msgEnviado, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                ease: "power2.out",
+                onStart: () => {
+                  sndEnviado.currentTime = 0;
+                  sndEnviado.play().catch(console.error);
+                }
+              });
+            }
+          }
+        });
+      }
+    }, 2000);
+  }
+</script>
