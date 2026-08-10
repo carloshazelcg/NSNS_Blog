@@ -1,6 +1,13 @@
-export async function onRequest(context) {
-  const { env, request } = context;
-  
+import { env } from "cloudflare:workers";
+
+export async function GET(context) {
+  const { request } = context;
+  const bucket = env.MY_BUCKET;
+
+  if (!bucket) {
+    return new Response("R2 Bucket binding no disponible", { status: 500 });
+  }
+
   const rangeHeader = request.headers.get('range');
   let options = {};
 
@@ -8,7 +15,7 @@ export async function onRequest(context) {
     const parts = rangeHeader.replace(/bytes=/, "").split("-");
     const start = parseInt(parts[0], 10);
     
-    const headObj = await env.MY_BUCKET.head('IMG_0340.MP4');
+    const headObj = await bucket.head('IMG_0340.MP4');
     if (!headObj) {
       return new Response("Video no encontrado", { status: 404 });
     }
@@ -25,7 +32,7 @@ export async function onRequest(context) {
     };
   }
 
-  const object = await env.MY_BUCKET.get('IMG_0340.MP4', options);
+  const object = await bucket.get('IMG_0340.MP4', options);
 
   if (!object) {
     return new Response("Video no encontrado", { status: 404 });
