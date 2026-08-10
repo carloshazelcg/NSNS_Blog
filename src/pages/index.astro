@@ -1,27 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
+import FooterProm from "../components/FooterProm.astro";
 import Hero from "../components/Hero.astro";
 import LlegoEnTres from "../components/LlegoEnTres.astro";
+import Revista from "../components/Revista.astro";
+import ElDueto from "../components/ElDueto.astro";
 ---
 
 <Layout title="No Sé No Sentir">
   <NavBar />
-  <main class="flex items-center justify-center min-h-screen px-4 bg-[#16161A] relative overflow-hidden">
-    <div class="absolute w-[350px] h-[350px] bg-[#94E2D5]/10 rounded-full blur-[140px] pointer-events-none"></div>
-    <div class="absolute w-[250px] h-[250px] bg-[#C7B8EA]/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-    <div class="text-center relative z-10">
-      <p class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-pulse text-[#94E2D5] drop-shadow-[0_0_15px_rgba(148,226,213,0.3)]">
-        Próximamente...
-      </p>
-
-      <div class="h-1 w-24 sm:w-32 mx-auto animate-bounce bg-gradient-to-r from-[#C7B8EA] via-[#94E2D5] to-[#94A1B2] rounded-full">
-      </div>
-
-      <p class="text-base sm:text-lg mt-8 font-medium text-[#8B949E]">
-        Estamos trabajando en algo especial...
-      </p>
-    </div>
-  </main>
+  <ElDueto />
+  <FooterProm />
 </Layout>

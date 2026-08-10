@@ -1,0 +1,637 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  .fanzine-paper-texture {
+    background-color: #050505;
+    background-image: 
+      radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.9) 100%),
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 35%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+  }
+
+  .zine-card-worn {
+    background-color: #dedede;
+    background-image: 
+      repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 4px),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.12'/%3E%3C/svg%3E");
+  }
+
+  @keyframes zine-flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0; text-shadow: none; }
+  }
+  .animate-flicker {
+    animation: zine-flicker 3s infinite;
+  }
+
+  @keyframes zine-stamp {
+    0% { opacity: 0; transform: scale(1.5) rotate(5deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+  .animate-stamp {
+    animation: zine-stamp 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+</style>
+
+<div class="absolute top-0 left-0 w-full h-[250px] -z-10 bg-cover bg-center bg-no-repeat brightness-50" style="background-image: url('/ElDueto/FondoNavbar.png');">
+</div>
+
+<section class="relative flex flex-col md:flex-row fanzine-paper-texture text-white min-h-[auto] md:min-h-[60vh] mt-[210px] border-t-[8px] border-black border-b-[2px] border-b-[#333] group"> 
+  <div class="w-full md:w-[35%] md:flex-none py-8 md:py-12 px-[5%] flex flex-col justify-center items-start z-20">
+    <div class="w-full max-w-[380px]">
+      <h1 class="animate-flicker font-['Alfa_Slab_One',_Impact,_serif] text-[clamp(2.8rem,6vw,5rem)] uppercase leading-[0.85] m-0 tracking-[-2px] text-[#ff0000] hover:text-white transition-colors duration-200 cursor-default">
+        EL DUETO
+      </h1>
+      <h2 class="animate-stamp font-['Alfa_Slab_One',_Impact,_serif] text-[clamp(1rem,2.5vw,2rem)] text-right m-0 mt-[5px] tracking-[-1px] text-[#dedede]">
+        VOLUMEN 1
+      </h2> 
+    </div>
+    
+    <div class="mt-6 md:mt-8 p-4 md:p-5 zine-card-worn text-black border-[3px] border-black shadow-[5px_5px_0px_#ff0000] transform -rotate-1 hover:rotate-0 transition-transform">
+      <p class="font-mono text-[0.8rem] md:text-[0.85rem] leading-[1.5] text-justify uppercase font-bold tracking-tighter">
+        Agradecemos el tiempo que te tomas para escuchar. "ElDueto" es una exploración de nuestras raíces e ideales, diseñado para platicar e intimar contigo. En esta ocasión podrás escuchar el Vol. 1 de nuestras historias, mostrando así el trabajo de dos mentes en sintonía. Esperamos que disfrutes este material tanto como nosotros disfrutamos creándolo para ti.
+      </p>
+      <p class="font-['Alfa_Slab_One'] text-lg md:text-xl text-right mt-3 text-[#ff0000] tracking-widest">
+        ATTE. ELDUETO
+      </p>
+    </div>
+  </div>
+  
+  <div class="relative w-full md:w-[65%] md:flex-none min-h-[35vh] md:min-h-auto bg-cover bg-center grayscale contrast-125 brightness-75 group-hover:grayscale-0 group-hover:contrast-[1.2] group-hover:brightness-90 transition-all duration-500 border-t-[5px] md:border-t-0 md:border-l-[8px] border-black z-30" style="background-image: url('/ElDueto/IMAGEN1.png');"> 
+  </div>
+</section>
+
+<!-- DINAMICA PRESAVE -->
+<div class="relative w-full min-h-screen p-4 flex flex-col items-center justify-center fanzine-paper-texture border-b-[8px] border-black overflow-hidden">
+  
+  <!-- FONDO DE REVISTA (LAS 3 FILAS DE FOTOS) ==== -->
+  <div class="absolute inset-0 z-0 flex flex-col gap-3 p-3 md:gap-5 md:p-5 opacity-30 grayscale blur-[1px]">
+    <div class="flex-1 flex gap-3 md:gap-5">
+      <div class="h-full w-[60%] bg-[#1a1a1a] border-[3px] border-[#222] bg-cover bg-center" style="background-image: url('/ElDueto/FOTOS/IMG_0316.PNG');"></div>
+      <div class="h-full w-[40%] bg-[#111] border-[3px] border-[#222] bg-cover bg-center" style="background-image: url('/ElDueto/FOTOS/IMG_0326.PNG');"></div>
+    </div>
+    <div class="flex-1 flex gap-3 md:gap-5">
+      <div class="h-full w-[35%] bg-[#111] border-[3px] border-[#222] bg-cover bg-center" style="background-image: url('/ElDueto/FOTOS/IMG_0310.PNG');"></div>
+      <div class="h-full w-[65%] bg-[#1a1a1a] border-[3px] border-[#222] bg-cover bg-center" style="background-image: url('/ElDueto/FOTOS/IMG_0319.PNG');"></div>
+    </div>
+    <div class="flex-1 flex gap-3 md:gap-5">
+      <div class="h-full w-[70%] bg-[#1a1a1a] border-[3px] border-[#222] bg-cover bg-center" style="background-image: url('/ElDueto/FOTOS/IMG_0320.PNG');"></div>
+      <div class="h-full w-[30%] bg-[#111] border-[3px] border-[#222] bg-cover bg-center" style="background-image: url('/ElDueto/FOTOS/IMG_0308.PNG');"></div>
+    </div>
+  </div>
+
+  <div class="relative z-20 flex flex-col items-center w-full max-w-[600px]">
+    
+    <!-- CONTENEDOR INICIAL (PRESAVE) -->
+    <div id="contenedor-inicial" class="w-full flex flex-col items-center">
+      <div id="texto-gancho" class="mb-6 transform -rotate-2 text-center pointer-events-none">
+        <p class="font-mono text-[#ff0000] font-bold tracking-widest text-sm md:text-base bg-black inline-block px-3 py-1 border-2 border-[#ff0000] animate-pulse">
+          <svg class="inline-block w-4 h-4 mr-1 -mt-1 fill-current" viewBox="0 0 24 24"><path d="M12 2L1 21h22M12 6l7.53 13H4.47M11 10v4h2v-4m-2 6v2h2v-2"/></svg> CONTIENE MATERIAL OCULTO
+        </p>
+        <p class="font-['Alfa_Slab_One'] text-[#dedede] text-sm md:text-lg mt-2 tracking-wide uppercase drop-shadow-[2px_2px_0px_#000]">
+          TENEMOS UN REGALO PARA TI... <br>
+          HAZ PRESAVE Y DESCÚBRELO.
+        </p>
+      </div>
+
+      <a href="https://bfan.link/eldueto-vol-1" target="_blank" id="btn-presave" class="animate-stamp inline-block py-[20px] px-[40px] bg-black text-white border-[6px] border-white font-['Alfa_Slab_One'] text-2xl md:text-4xl uppercase tracking-widest text-center no-underline shadow-[12px_12px_0px_#ff0000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_#ff0000] hover:bg-[#ff0000] hover:border-black transition-all duration-150 cursor-pointer -rotate-2 hover:rotate-0 pointer-events-auto">
+        Pre-guardar<br>
+        <span class="text-xl md:text-2xl text-[#dedede]">Y DESBLOQUEAR</span>
+      </a>
+
+      <div id="mensaje-regalo" class="hidden mt-[30px] text-center border-[6px] border-black zine-card-worn shadow-[12px_12px_0px_#000] p-[30px] w-full relative before:absolute before:-top-4 before:-left-4 before:w-10 before:h-10 before:bg-[#ff0000] before:rotate-45 pointer-events-auto">
+        <h3 class="mt-0 font-['Alfa_Slab_One'] text-2xl md:text-3xl uppercase tracking-tighter text-black leading-tight">
+          ¿YA HICISTE PRE-SAVE?
+        </h3>
+        <p class="font-mono text-base md:text-lg uppercase font-bold mt-4 text-[#333]">
+          HAZ PRESAVE Y VUELVE PARA DESCUBRIR EL REGALO. <br>
+        </p>
+        <button id="btn-ir-personajes" class="mt-6 inline-block py-[15px] px-[30px] bg-[#ff0000] text-white border-[4px] border-black font-['Alfa_Slab_One'] text-xl uppercase tracking-widest text-center shadow-[6px_6px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] transition-all cursor-pointer">
+          YA LO HICE, AVANCEMOS...
+        </button>
+      </div>
+    </div>
+
+    <!-- SELECCIÓN DE PERSONAJE -->
+    <div id="contenedor-personaje" class="hidden w-full mt-[30px] text-center border-[6px] border-black zine-card-worn shadow-[12px_12px_0px_#000] p-[20px] pointer-events-auto">
+      <h3 class="mt-0 font-['Alfa_Slab_One'] text-2xl md:text-3xl uppercase tracking-tighter text-black">ELIGE TU CORREDOR</h3>
+      <p class="font-mono text-sm uppercase font-bold mt-2 text-[#333]">Haz click en tu personaje para comenzar</p>
+      
+      <div class="flex flex-col md:flex-row justify-center items-stretch gap-6 mt-6">
+        <div id="sel-p1" class="group cursor-pointer border-4 border-black p-4 bg-black hover:bg-[#ff0000] transition-all duration-150 shadow-[6px_6px_0px_#000] hover:shadow-[2px_2px_0px_#000] transform hover:translate-x-[4px] hover:translate-y-[4px] w-[180px] h-[220px] flex flex-col items-center justify-between mx-auto">
+          <div class="w-[90px] h-[100px] bg-contain bg-center bg-no-repeat border-2 border-black bg-[#dedede]" style="background-image: url('/ElDueto/JUEGO/niko.png');"></div>
+          <p class="font-['Alfa_Slab_One'] text-base md:text-lg text-white group-hover:text-black uppercase transition-colors text-center w-full leading-tight">FOKIU NIKO</p>
+        </div>
+        <div id="sel-p2" class="group cursor-pointer border-4 border-black p-4 bg-black hover:bg-[#ff0000] transition-all duration-150 shadow-[6px_6px_0px_#000] hover:shadow-[2px_2px_0px_#000] transform hover:translate-x-[4px] hover:translate-y-[4px] w-[180px] h-[220px] flex flex-col items-center justify-between mx-auto">
+          <div class="w-[90px] h-[100px] bg-contain bg-center bg-no-repeat border-2 border-black bg-[#dedede]" style="background-image: url('/ElDueto/JUEGO/omy.png');"></div>
+          <p class="font-['Alfa_Slab_One'] text-base md:text-lg text-white group-hover:text-black uppercase transition-colors text-center w-full leading-tight">OMY</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JUEGO -->
+    <div id="contenedor-juego" class="hidden w-full mt-[30px] text-center border-[6px] border-black zine-card-worn shadow-[12px_12px_0px_#000] p-[10px] relative pointer-events-auto max-w-[400px]">
+      <div class="border-y-4 border-black py-2 my-2 bg-black text-white font-['Alfa_Slab_One'] uppercase flex justify-between px-4">
+        <span id="texto-nivel">NIVEL 1</span>
+        <span id="texto-puntos" class="text-[#ff0000]">PTS: 0/150</span>
+      </div>
+      
+      <div class="relative">
+        <canvas id="lienzo-juego" width="380" height="480" class="bg-[#dedede] w-full border-[4px] border-black cursor-crosshair block mx-auto touch-none"></canvas>
+        
+        <div id="overlay-inicio" class="absolute inset-0 bg-black/80 flex flex-col items-center justify-center p-4 cursor-pointer">
+          <p class="font-['Alfa_Slab_One'] text-xl md:text-2xl text-[#ff0000] uppercase tracking-wider text-center drop-shadow-[2px_2px_0px_#000]">
+            ¡TOCA LA PANTALLA O HAZ CLIC PARA ARRANCAR!
+          </p>
+          <p class="font-mono text-xs md:text-sm text-[#dedede] mt-3 uppercase tracking-widest animate-pulse">
+            [ ARRASTRA PARA MOVERTE ]
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="video-secreto" class="hidden mt-[50px] p-[20px] bg-[#050505] text-white border-[6px] border-[#ff0000] w-full text-center shadow-[12px_12px_0px_#000] transform rotate-1 relative overflow-hidden pointer-events-auto">
+      <h3 class="mt-0 font-['Alfa_Slab_One'] text-3xl md:text-4xl uppercase text-[#ff0000] tracking-[-1px] drop-shadow-[2px_2px_0px_#000]">¡MATERIAL DESBLOQUEADO!</h3>
+      
+      <div id="mensaje-agradecimiento" class="py-8 px-4 md:px-6 flex flex-col md:flex-row items-center justify-center gap-6 z-10 hidden">
+        <div class="w-full md:w-1/2 max-w-[300px] zine-card-worn border-[4px] border-black p-2 shadow-[8px_8px_0px_#000] transform -rotate-2">
+          <img src="/ElDueto/ELDUETO.jpg" alt="Portada El Dueto" class="w-full h-auto block border-2 border-black object-contain">
+        </div>
+
+        <div class="w-full md:w-1/2 flex flex-col items-center text-center">
+          <div class="mb-4 w-24 h-24 md:w-20 md:h-20 bg-contain bg-center bg-no-repeat filter invert brightness-0 opacity-80" style="background-image: url('/ElDueto/JUEGO/LOGO.PNG');"></div>
+
+          <h4 class="font-['Alfa_Slab_One'] text-xl md:text-2xl text-[#dedede] uppercase tracking-wider leading-none drop-shadow-[3px_3px_0px_#000]">
+            ¡Nos vemos en el próximo volumen!
+          </h4>
+
+          <div class="w-full max-w-[300px] mt-6 flex justify-end">
+            <div class="font-['Alfa_Slab_One'] text-sm text-[#ff0000] tracking-widest uppercase transform rotate-2 border-t-2 border-[#ff0000] pt-2">
+              ELDUETO
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mensaje-visto" class="hidden py-8 px-4 md:px-6 flex-col md:flex-row items-center justify-center gap-6 z-10">
+        <div class="w-full max-w-[400px] zine-card-worn text-black border-[4px] border-black p-6 shadow-[8px_8px_0px_#ff0000] transform rotate-1">
+          <h4 class="font-['Alfa_Slab_One'] text-2xl md:text-3xl uppercase tracking-tighter text-black leading-tight">
+            ¡YA VISUALIZASTE ESTE CONTENIDO!
+          </h4>
+          <p class="font-mono text-sm md:text-base uppercase font-bold mt-4 text-[#333] leading-relaxed">
+            Este material exclusivo ya fue visualizado en este dispositivo.
+          </p>
+        </div>
+      </div>
+
+      <div id="contenedor-reproductor" class="relative w-full aspect-video border-[4px] border-[#333] bg-black z-20 mt-6">
+        <video id="video-player" controls playsinline controlslist="nodownload" oncontextmenu="return false;" preload="auto" class="w-full h-full object-cover">
+          <source src="/ElDueto/VIDEO/IMG_0340.MP4" type="video/mp4">
+          Tu navegador no soporta la reproduccion de video.
+        </video>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script is:inline>
+  // @ts-nocheck
+  let animacionId = 0;
+  let estadoJuego = 'inactivo';
+
+  function initJuegoDueto() {
+    if (animacionId) {
+      cancelAnimationFrame(animacionId);
+      animacionId = 0;
+    }
+    estadoJuego = 'inactivo';
+
+    const btnPresave = document.getElementById('btn-presave');
+    const mensajeRegalo = document.getElementById('mensaje-regalo');
+    const btnIrPersonajes = document.getElementById('btn-ir-personajes');
+    const contenedorInicial = document.getElementById('contenedor-inicial');
+    const contenedorPersonaje = document.getElementById('contenedor-personaje');
+    const contenedorJuego = document.getElementById('contenedor-juego');
+    const videoSecreto = document.getElementById('video-secreto'); 
+    const videoPlayer = document.getElementById('video-player'); 
+    const contenedorReproductor = document.getElementById('contenedor-reproductor');
+    const mensajeVisto = document.getElementById('mensaje-visto');
+    const mensajeAgradecimiento = document.getElementById('mensaje-agradecimiento');
+    const canvas = document.getElementById('lienzo-juego');
+    const textoPuntos = document.getElementById('texto-puntos');
+    const textoNivel = document.getElementById('texto-nivel');
+    const overlayInicio = document.getElementById('overlay-inicio');
+
+    const selP1 = document.getElementById('sel-p1');
+    const selP2 = document.getElementById('sel-p2');
+
+    if (!btnPresave || !canvas || !videoSecreto) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let personajeSeleccionado = 1;
+    let puntos = 0;
+    let nivel = 1;
+    let velocidadScroll = 3.0;
+    let contadorFrames = 0;
+    let anguloRotacion = 0;
+
+    let jugador = { x: canvas.width / 2 - 16, y: 40, ancho: 32, alto: 32, targetX: canvas.width / 2 - 16 };
+    let obstaculos = [];
+    let metaFinal = { y: -300, activa: false, completada: false };
+
+    const imgPersonaje1 = new Image();
+    imgPersonaje1.src = '/ElDueto/JUEGO/niko.png';
+
+    const imgPersonaje2 = new Image();
+    imgPersonaje2.src = '/ElDueto/JUEGO/omy.png';
+
+    const musicaFondo = new Audio('/ElDueto/JUEGO/RINGRING.mp3');
+    musicaFondo.loop = true;
+    musicaFondo.volume = 0.1;
+
+    const audioColision = new Audio('/ElDueto/JUEGO/YAMAMASTE.mp3');
+    audioColision.volume = 0.2;
+
+    function mostrarAgradecimiento(elementoOcultar) {
+      if (elementoOcultar) elementoOcultar.style.display = 'none';
+      if (mensajeAgradecimiento) {
+        mensajeAgradecimiento.classList.remove('hidden');
+        mensajeAgradecimiento.classList.add('flex');
+      }
+    }
+
+    function mostrarMensajeVisto(elementoOcultar) {
+      if (elementoOcultar) elementoOcultar.style.display = 'none';
+      if (mensajeVisto) {
+        mensajeVisto.classList.remove('hidden');
+        mensajeVisto.classList.add('flex');
+      }
+    }
+
+    function marcarVideoComoVisto() {
+      localStorage.setItem('nsns_video_desbloqueado', 'true');
+    }
+
+    let arrastrando = false;
+
+    function manejarMovimiento(clientX) {
+      const rect = canvas.getBoundingClientRect();
+      const escalaX = canvas.width / rect.width;
+      const xCanvas = (clientX - rect.left) * escalaX;
+      jugador.targetX = xCanvas - jugador.ancho / 2;
+      if (jugador.targetX < 10) jugador.targetX = 10;
+      if (jugador.targetX > canvas.width - jugador.ancho - 10) jugador.targetX = canvas.width - jugador.ancho - 10;
+    }
+
+    canvas.addEventListener('mousedown', (e) => {
+      arrastrando = true;
+      manejarMovimiento(e.clientX);
+      iniciarAccionJuego();
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (arrastrando) manejarMovimiento(e.clientX);
+    });
+    window.addEventListener('mouseup', () => { arrastrando = false; });
+
+    canvas.addEventListener('touchstart', (e) => {
+      arrastrando = true;
+      if (e.touches.length > 0) manejarMovimiento(e.touches[0].clientX);
+      iniciarAccionJuego();
+      e.preventDefault();
+    }, {passive: false});
+
+    window.addEventListener('touchmove', (e) => {
+      if (arrastrando && e.touches.length > 0) {
+        manejarMovimiento(e.touches[0].clientX);
+        e.preventDefault();
+      }
+    }, {passive: false});
+
+    window.addEventListener('touchend', () => { arrastrando = false; });
+
+    if (overlayInicio) {
+      overlayInicio.addEventListener('click', () => {
+        iniciarAccionJuego();
+      });
+      overlayInicio.addEventListener('touchstart', (e) => {
+        iniciarAccionJuego();
+        e.preventDefault();
+      }, {passive: false});
+    }
+
+    function iniciarAccionJuego() {
+      if (estadoJuego === 'esperando_inicio') {
+        estadoJuego = 'jugando';
+        if (overlayInicio) overlayInicio.style.display = 'none';
+        musicaFondo.play().catch(err => console.log("Audio play prevented:", err));
+        bucleJuego();
+      } else if (estadoJuego === 'perdido') {
+        reiniciarJuego();
+        estadoJuego = 'jugando';
+        if (overlayInicio) overlayInicio.style.display = 'none';
+        musicaFondo.play().catch(err => console.log("Audio play prevented:", err));
+        bucleJuego();
+      }
+    }
+
+    function reiniciarJuego() {
+      puntos = 0;
+      nivel = 1;
+      velocidadScroll = 3.0;
+      contadorFrames = 0;
+      anguloRotacion = 0;
+      obstaculos = [];
+      metaFinal = { y: -300, activa: false, completada: false };
+      jugador.x = canvas.width / 2 - 16;
+      jugador.targetX = jugador.x;
+      jugador.y = 40;
+      if (textoPuntos) textoPuntos.innerHTML = 'PTS: 0/150';
+      if (textoNivel) textoNivel.innerHTML = 'NIVEL 1';
+    }
+
+    function generarObstaculo() {
+      let anchoHueco = 140;
+      if (nivel === 2) anchoHueco = 110;
+      if (nivel === 3) anchoHueco = 95;
+
+      const xMaxHueco = canvas.width - anchoHueco - 20;
+      const xHueco = Math.random() * (xMaxHueco - 20) + 20;
+      
+      let velocidadLateral = 0;
+      if (nivel === 2) velocidadLateral = Math.random() > 0.5 ? 1.0 : -1.0;
+      if (nivel === 3) velocidadLateral = Math.random() > 0.4 ? 1.8 : -1.8;
+
+      obstaculos.push({
+        y: canvas.height + 40,
+        alto: 28,
+        xHueco: xHueco,
+        anchoHueco: anchoHueco,
+        vx: velocidadLateral
+      });
+    }
+
+    function dibujarTabiquesFila(x, y, w, h) {
+      if (w <= 0) return;
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(x, y, w, h);
+      ctx.clip();
+
+      ctx.fillStyle = '#b23a25';
+      ctx.fillRect(x, y, w, h);
+
+      ctx.strokeStyle = '#000';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(x, y, w, h);
+
+      ctx.fillStyle = '#4a150b';
+      let anchoTabique = 20;
+      for (let tx = 0; tx < canvas.width; tx += anchoTabique) {
+        ctx.strokeRect(tx, y, anchoTabique, h);
+      }
+      ctx.restore();
+    }
+
+    function bucleJuego() {
+      if (estadoJuego !== 'jugando' && estadoJuego !== 'esperando_inicio') return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#3a2e2b';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.strokeStyle = '#1e1715';
+      ctx.lineWidth = 2;
+      let hLadrillo = 22;
+      let wLadrillo = 46;
+      for (let y = 0; y < canvas.height; y += hLadrillo) {
+        let offset = (y / hLadrillo) % 2 === 0 ? 0 : wLadrillo / 2;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+        for (let x = offset; x < canvas.width; x += wLadrillo) {
+          ctx.beginPath();
+          ctx.moveTo(x, y);
+          ctx.lineTo(x, y + hLadrillo);
+          ctx.stroke();
+        }
+      }
+
+      let difX = jugador.targetX - jugador.x;
+      jugador.x += difX * 0.25;
+      anguloRotacion = (difX * 0.03);
+      if (anguloRotacion > 0.35) anguloRotacion = 0.35;
+      if (anguloRotacion < -0.35) anguloRotacion = -0.35;
+
+      if (estadoJuego === 'jugando' && !metaFinal.activa) {
+        contadorFrames++;
+        let frecuencia = 95;
+        if (nivel === 2) frecuencia = 80;
+        if (nivel === 3) frecuencia = 65;
+
+        if (contadorFrames % frecuencia === 0) {
+          generarObstaculo();
+        }
+
+        for (let i = obstaculos.length - 1; i >= 0; i--) {
+          let obs = obstaculos[i];
+          obs.y -= velocidadScroll;
+
+          if (nivel >= 2) {
+            obs.xHueco += obs.vx;
+            if (obs.xHueco <= 0 || obs.xHueco + obs.anchoHueco >= canvas.width) {
+              obs.vx *= -1;
+            }
+          }
+
+          if (obs.y + obs.alto < 0) {
+            obstaculos.splice(i, 1);
+            puntos += 10;
+
+            if (puntos >= 50 && nivel === 1) {
+              nivel = 2;
+              velocidadScroll = 4.0;
+              if (textoNivel) textoNivel.innerHTML = 'NIVEL 2';
+            } else if (puntos >= 100 && nivel === 2) {
+              nivel = 3;
+              velocidadScroll = 4.8;
+              if (textoNivel) textoNivel.innerHTML = 'NIVEL 3 (¡FINAL!)';
+            } else if (puntos >= 150) {
+              metaFinal.activa = true;
+              metaFinal.y = canvas.height + 50;
+            }
+
+            if (textoPuntos) textoPuntos.innerHTML = 'PTS: ' + puntos + '/150';
+          }
+        }
+      }
+
+      if (metaFinal.activa) {
+        metaFinal.y -= velocidadScroll;
+        ctx.fillStyle = '#ff0000';
+        ctx.fillRect(20, metaFinal.y, canvas.width - 40, 40);
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 3;
+        ctx.strokeRect(20, metaFinal.y, canvas.width - 40, 40);
+
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 18px "Alfa Slab One", Impact, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText("¡META FINAL!", canvas.width / 2, metaFinal.y + 26);
+
+        if (jugador.y < metaFinal.y + 40 && jugador.y + jugador.alto > metaFinal.y) {
+          metaFinal.completada = true;
+        }
+      } else {
+        for (let i = 0; i < obstaculos.length; i++) {
+          let obs = obstaculos[i];
+          
+          let izqW = Math.max(0, obs.xHueco);
+          if (izqW > 0) {
+            dibujarTabiquesFila(0, obs.y, izqW, obs.alto);
+          }
+
+          let derX = obs.xHueco + obs.anchoHueco;
+          let derW = Math.max(0, canvas.width - derX);
+          if (derW > 0) {
+            dibujarTabiquesFila(derX, obs.y, derW, obs.alto);
+          }
+
+          let colisionIzq = (jugador.x < izqW) && (jugador.y < obs.y + obs.alto && jugador.y + jugador.alto > obs.y);
+          let colisionDer = (jugador.x + jugador.ancho > derX) && (jugador.y < obs.y + obs.alto && jugador.y + jugador.alto > obs.y);
+
+          if (colisionIzq || colisionDer) {
+            estadoJuego = 'perdido';
+            musicaFondo.pause();
+            audioColision.play().catch(err => console.log("Audio collision play error:", err));
+
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#ff0000';
+            ctx.font = '35px "Alfa Slab One", Impact, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText("¡YA MAMASTE!", canvas.width / 2, canvas.height / 2 - 10);
+
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 12px monospace';
+            ctx.fillText("Toca o haz clic para reintentar", canvas.width / 2, canvas.height / 2 + 25);
+            return;
+          }
+        }
+      }
+
+      ctx.save();
+      ctx.translate(jugador.x + jugador.ancho / 2, jugador.y + jugador.alto / 2);
+      ctx.rotate(anguloRotacion);
+
+      let imgActual = personajeSeleccionado === 1 ? imgPersonaje1 : imgPersonaje2;
+      if (imgActual.complete && imgActual.naturalHeight !== 0) {
+        let aspectRatio = imgActual.naturalWidth / imgActual.naturalHeight;
+        let renderAncho = jugador.alto * aspectRatio;
+        ctx.drawImage(imgActual, -renderAncho / 2, -jugador.alto / 2, renderAncho, jugador.alto);
+      } else {
+        ctx.fillStyle = '#ff0000';
+        ctx.fillRect(-jugador.ancho / 2, -jugador.alto / 2, jugador.ancho, jugador.alto);
+      }
+      ctx.restore();
+
+      if (metaFinal.completada || puntos >= 150 && metaFinal.y + 40 < 0) {
+        estadoJuego = 'inactivo';
+        musicaFondo.pause();
+        if (animacionId) cancelAnimationFrame(animacionId);
+
+        contenedorJuego.classList.remove('block');
+        contenedorJuego.classList.add('hidden'); 
+        videoSecreto.classList.remove('hidden');
+        videoSecreto.classList.add('block'); 
+
+        const yaLoVio = localStorage.getItem('nsns_video_desbloqueado') === 'true';
+
+        if (yaLoVio) {
+          if (contenedorReproductor) contenedorReproductor.style.display = 'none';
+          mostrarMensajeVisto(null);
+          setTimeout(() => {
+            if (mensajeVisto) {
+              mensajeVisto.style.display = 'none';
+              mostrarAgradecimiento(null);
+            }
+          }, 5000);
+        } else {
+          if (videoPlayer) {
+            setTimeout(() => {
+              videoPlayer.play().then(() => {
+                marcarVideoComoVisto();
+              }).catch((err) => {
+                console.log("Autoplay prevenido. Requiere interacción manual.", err);
+                videoPlayer.addEventListener('play', marcarVideoComoVisto, { once: true });
+              });
+            }, 300);
+
+            videoPlayer.addEventListener('ended', function() {
+              mostrarAgradecimiento(contenedorReproductor);
+            });
+          }
+        }
+        return;
+      }
+
+      if (estadoJuego === 'jugando') {
+        animacionId = requestAnimationFrame(bucleJuego);
+      }
+    }
+
+    const newBtn = btnPresave.cloneNode(true);
+    if (btnPresave.parentNode) {
+      btnPresave.parentNode.replaceChild(newBtn, btnPresave);
+    }
+
+    newBtn.addEventListener('click', function() {
+      newBtn.style.display = 'none';
+      const textoGancho = document.getElementById('texto-gancho');
+      if (textoGancho) textoGancho.style.display = 'none';
+      if (mensajeRegalo) {
+        mensajeRegalo.classList.remove('hidden');
+        mensajeRegalo.classList.add('block');
+      }
+    });
+
+    if (btnIrPersonajes) {
+      btnIrPersonajes.addEventListener('click', function() {
+        if (mensajeRegalo) mensajeRegalo.style.display = 'none';
+        if (contenedorInicial) contenedorInicial.style.display = 'none';
+        if (contenedorPersonaje) {
+          contenedorPersonaje.classList.remove('hidden');
+          contenedorPersonaje.classList.add('block');
+        }
+      });
+    }
+
+    function elegirPersonaje(num) {
+      personajeSeleccionado = num;
+      if (contenedorPersonaje) contenedorPersonaje.style.display = 'none';
+      if (contenedorJuego) {
+        contenedorJuego.classList.remove('hidden');
+        contenedorJuego.classList.add('block');
+      }
+
+      estadoJuego = 'esperando_inicio';
+      reiniciarJuego();
+      if (overlayInicio) overlayInicio.style.display = 'flex';
+      bucleJuego();
+    }
+
+    if (selP1) selP1.addEventListener('click', () => elegirPersonaje(1));
+    if (selP2) selP2.addEventListener('click', () => elegirPersonaje(2));
+  }
+
+  initJuegoDueto();
+  document.addEventListener('astro:page-load', initJuegoDueto);
+</script>
