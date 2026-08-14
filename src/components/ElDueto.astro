@@ -1,6 +1,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
   .fanzine-paper-texture {
@@ -34,13 +35,57 @@
   .animate-stamp {
     animation: zine-stamp 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   }
+
+  /* DOCK PLATAFORMAS FIJO - SOLO CAMBIO DE COLOR AL HOVER */
+  #platform-dock-container {
+    position: absolute; 
+    right: 0; 
+    top: 15%; 
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: auto;
+  }
+  
+  .platform-link {
+    background: #000; 
+    color: #fff; 
+    border: 2px solid #333; 
+    border-right: none;
+    height: 48px;
+    width: 50px; 
+    border-radius: 8px 0 0 8px; 
+    overflow: hidden; 
+    transition: color 0.3s, border-color 0.3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .platform-link:hover { 
+    border-color: #ff0000; 
+    color: #ff0000; 
+  }
+
+  .platform-link i {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .platform-link span { 
+    display: none; 
+  }
 </style>
 
 <div class="absolute top-0 left-0 w-full h-[250px] -z-10 bg-cover bg-center bg-no-repeat brightness-50" style="background-image: url('/ElDueto/FondoNavbar.png');">
 </div>
 
 <section class="relative flex flex-col md:flex-row fanzine-paper-texture text-white min-h-[auto] md:min-h-[60vh] mt-[210px] border-t-[8px] border-black border-b-[2px] border-b-[#333] group"> 
-  <div class="w-full md:w-[35%] md:flex-none py-8 md:py-12 px-[5%] flex flex-col justify-center items-start z-20">
+  <div class="w-full md:w-[35%] md:flex-none py-8 md:py-12 px-[5%] flex flex-col justify-center items-start z-25">
     <div class="w-full max-w-[380px]">
       <h1 class="animate-flicker font-['Alfa_Slab_One',_Impact,_serif] text-[clamp(2.8rem,6vw,5rem)] uppercase leading-[0.85] m-0 tracking-[-2px] text-[#ff0000] hover:text-white transition-colors duration-200 cursor-default">
         EL DUETO
@@ -52,11 +97,15 @@
     
     <div class="mt-6 md:mt-8 p-4 md:p-5 zine-card-worn text-black border-[3px] border-black shadow-[5px_5px_0px_#ff0000] transform -rotate-1 hover:rotate-0 transition-transform">
       <p class="font-mono text-[0.8rem] md:text-[0.85rem] leading-[1.5] text-justify uppercase font-bold tracking-tighter">
-        Agradecemos el tiempo que te tomas para escuchar. "ElDueto" es una exploración de nuestras raíces e ideales, diseñado para platicar e intimar contigo. En esta ocasión podrás escuchar el Vol. 1 de nuestras historias, mostrando así el trabajo de dos mentes en sintonía. Esperamos que disfrutes este material tanto como nosotros disfrutamos creándolo para ti.
+        Agradecemos el tiempo que te tomas para escuchar. "ElDueto" es una exploración de nuestras raíces e ideales, diseñado para platicar e intimar contigo. Ya disponible en todas las plataformas. Esperamos que disfrutes este material tanto como nosotros disfrutamos creándolo para ti.
       </p>
       <p class="font-['Alfa_Slab_One'] text-lg md:text-xl text-right mt-3 text-[#ff0000] tracking-widest">
         ATTE. ELDUETO
       </p>
+    </div>
+
+    <div class="mt-6 w-full max-w-[380px]">
+        <iframe src="https://open.spotify.com/embed/album/3fSuKGLTBSJl6fXEZyurE0" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
   </div>
   
@@ -64,10 +113,22 @@
   </div>
 </section>
 
-<!-- DINAMICA PRESAVE -->
-<div class="relative w-full min-h-screen p-4 flex flex-col items-center justify-center fanzine-paper-texture border-b-[8px] border-black overflow-hidden">
-  
-  <!-- FONDO DE REVISTA (LAS 3 FILAS DE FOTOS) ==== -->
+<!-- DINAMICA JUEGO / ESTRENO -->
+<section id="game-section" class="relative w-full min-h-screen p-4 flex flex-col items-center justify-center fanzine-paper-texture border-b-[8px] border-black overflow-hidden">
+
+  <!-- DOCK DE PLATAFORMAS -->
+  <div id="platform-dock-container">
+    <nav class="flex flex-col gap-2">
+      <a href="https://open.spotify.com/intl-es/album/3fSuKGLTBSJl6fXEZyurE0?si=qdrg_FnvRliSO47-YiIKZg" target="_blank" class="platform-link"><i class="fab fa-spotify"></i></a>
+      <a href="https://music.apple.com/mx/album/eldueto-vol-1-ep/6795969216" target="_blank" class="platform-link"><i class="fab fa-apple"></i></a>
+      <a href="https://music.youtube.com/playlist?list=OLAK5uy_leGFgul33KE8aM0xg9XOKTKCkCx_YWp-E&si=xYDtMnbyH0sI85g2" target="_blank" class="platform-link"><i class="fab fa-youtube"></i></a>
+      <a href="https://tidal.com/album/548182070/u" target="_blank" class="platform-link"><i class="fa-solid fa-water"></i></a>
+      <a href="https://music.amazon.fr/albums/B0HC4VTS4X?marketplaceId=A13V1IB3VIYZZH&musicTerritory=FR&ref=dm_sh_mDF6aptFKPRXmU60FFsllklVR" target="_blank" class="platform-link"><i class="fab fa-amazon"></i></a>
+      <a href="https://www.deezer.com/mx/album/1043197822" target="_blank" class="platform-link"><i class="fab fa-deezer"></i></a>
+    </nav>
+  </div>
+
+  <!-- FONDO DE LA SECCIÓN ORIGINAL DE REVISTA -->
   <div class="absolute inset-0 z-0 flex flex-col gap-3 p-3 md:gap-5 md:p-5 opacity-30 grayscale blur-[1px]">
     <div class="flex-1 flex gap-3 md:gap-5">
       <div class="h-full w-[60%] bg-[#1a1a1a] border-[3px] border-[#222] bg-cover bg-center" style="background-image: url('/ElDueto/FOTOS/IMG_0316.PNG');"></div>
@@ -83,51 +144,25 @@
     </div>
   </div>
 
-  <div class="relative z-20 flex flex-col items-center w-full max-w-[600px]">
+  <div class="relative z-20 flex flex-col items-center w-full max-w-[400px]">
     
-    <!-- CONTENEDOR INICIAL (PRESAVE) -->
-    <div id="contenedor-inicial" class="w-full flex flex-col items-center">
-      <div id="texto-gancho" class="mb-6 transform -rotate-2 text-center pointer-events-none">
-        <p class="font-mono text-[#ff0000] font-bold tracking-widest text-sm md:text-base bg-black inline-block px-3 py-1 border-2 border-[#ff0000] animate-pulse">
-          <svg class="inline-block w-4 h-4 mr-1 -mt-1 fill-current" viewBox="0 0 24 24"><path d="M12 2L1 21h22M12 6l7.53 13H4.47M11 10v4h2v-4m-2 6v2h2v-2"/></svg> CONTIENE MATERIAL OCULTO
-        </p>
-        <p class="font-['Alfa_Slab_One'] text-[#dedede] text-sm md:text-lg mt-2 tracking-wide uppercase drop-shadow-[2px_2px_0px_#000]">
-          TENEMOS UN REGALO PARA TI... <br>
-          HAZ PRESAVE Y DESCÚBRELO.
-        </p>
-      </div>
-
-      <a href="https://bfan.link/eldueto-vol-1" target="_blank" id="btn-presave" class="animate-stamp inline-block py-[20px] px-[40px] bg-black text-white border-[6px] border-white font-['Alfa_Slab_One'] text-2xl md:text-4xl uppercase tracking-widest text-center no-underline shadow-[12px_12px_0px_#ff0000] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0px_#ff0000] hover:bg-[#ff0000] hover:border-black transition-all duration-150 cursor-pointer -rotate-2 hover:rotate-0 pointer-events-auto">
-        Pre-guardar<br>
-        <span class="text-xl md:text-2xl text-[#dedede]">Y DESBLOQUEAR</span>
-      </a>
-
-      <div id="mensaje-regalo" class="hidden mt-[30px] text-center border-[6px] border-black zine-card-worn shadow-[12px_12px_0px_#000] p-[30px] w-full relative before:absolute before:-top-4 before:-left-4 before:w-10 before:h-10 before:bg-[#ff0000] before:rotate-45 pointer-events-auto">
-        <h3 class="mt-0 font-['Alfa_Slab_One'] text-2xl md:text-3xl uppercase tracking-tighter text-black leading-tight">
-          ¿YA HICISTE PRE-SAVE?
-        </h3>
-        <p class="font-mono text-base md:text-lg uppercase font-bold mt-4 text-[#333]">
-          HAZ PRESAVE Y VUELVE PARA DESCUBRIR EL REGALO. <br>
-        </p>
-        <button id="btn-ir-personajes" class="mt-6 inline-block py-[15px] px-[30px] bg-[#ff0000] text-white border-[4px] border-black font-['Alfa_Slab_One'] text-xl uppercase tracking-widest text-center shadow-[6px_6px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#000] transition-all cursor-pointer">
-          YA LO HICE, AVANCEMOS...
-        </button>
-      </div>
-    </div>
-
     <!-- SELECCIÓN DE PERSONAJE -->
-    <div id="contenedor-personaje" class="hidden w-full mt-[30px] text-center border-[6px] border-black zine-card-worn shadow-[12px_12px_0px_#000] p-[20px] pointer-events-auto">
+    <div id="contenedor-personaje" class="w-full mt-[30px] text-center border-[6px] border-black zine-card-worn shadow-[12px_12px_0px_#000] p-[20px] pointer-events-auto">
+      <div class="mb-4 transform -rotate-1">
+        <p class="font-mono text-[#ff0000] font-bold tracking-widest text-sm bg-black inline-block px-3 py-1 border-2 border-[#ff0000]">
+          YA DISPONIBLE EN PLATAFORMAS
+        </p>
+      </div>
       <h3 class="mt-0 font-['Alfa_Slab_One'] text-2xl md:text-3xl uppercase tracking-tighter text-black">ELIGE TU PERSONAJE</h3>
-      <p class="font-mono text-sm uppercase font-bold mt-2 text-[#333]">Haz click en tu personaje para comenzar</p>
       
       <div class="flex flex-col md:flex-row justify-center items-stretch gap-6 mt-6">
-        <div id="sel-p1" class="group cursor-pointer border-4 border-black p-4 bg-black hover:bg-[#ff0000] transition-all duration-150 shadow-[6px_6px_0px_#000] hover:shadow-[2px_2px_0px_#000] transform hover:translate-x-[4px] hover:translate-y-[4px] w-[180px] h-[220px] flex flex-col items-center justify-between mx-auto">
-          <div class="w-[90px] h-[100px] bg-contain bg-center bg-no-repeat border-2 border-black bg-[#dedede]" style="background-image: url('/ElDueto/JUEGO/niko.png');"></div>
-          <p class="font-['Alfa_Slab_One'] text-base md:text-lg text-white group-hover:text-black uppercase transition-colors text-center w-full leading-tight">FOKIU NIKO</p>
+        <div id="sel-p1" class="group cursor-pointer border-4 border-black p-4 bg-black hover:bg-[#ff0000] transition-all duration-150 shadow-[6px_6px_0px_#000] hover:shadow-[2px_2px_0px_#000] transform hover:translate-x-[4px] hover:translate-y-[4px] w-[140px] h-[180px] flex flex-col items-center justify-between mx-auto">
+          <div class="w-full h-[110px] bg-contain bg-center bg-no-repeat border-2 border-black bg-[#dedede]" style="background-image: url('/ElDueto/JUEGO/CABEZANIKO.PNG');"></div>
+          <p class="font-['Alfa_Slab_One'] text-sm text-white group-hover:text-black uppercase transition-colors text-center w-full leading-tight">FOKIU NIKO</p>
         </div>
-        <div id="sel-p2" class="group cursor-pointer border-4 border-black p-4 bg-black hover:bg-[#ff0000] transition-all duration-150 shadow-[6px_6px_0px_#000] hover:shadow-[2px_2px_0px_#000] transform hover:translate-x-[4px] hover:translate-y-[4px] w-[180px] h-[220px] flex flex-col items-center justify-between mx-auto">
-          <div class="w-[90px] h-[100px] bg-contain bg-center bg-no-repeat border-2 border-black bg-[#dedede]" style="background-image: url('/ElDueto/JUEGO/omy.png');"></div>
-          <p class="font-['Alfa_Slab_One'] text-base md:text-lg text-white group-hover:text-black uppercase transition-colors text-center w-full leading-tight">OMY</p>
+        <div id="sel-p2" class="group cursor-pointer border-4 border-black p-4 bg-black hover:bg-[#ff0000] transition-all duration-150 shadow-[6px_6px_0px_#000] hover:shadow-[2px_2px_0px_#000] transform hover:translate-x-[4px] hover:translate-y-[4px] w-[140px] h-[180px] flex flex-col items-center justify-between mx-auto">
+          <div class="w-full h-[110px] bg-contain bg-center bg-no-repeat border-2 border-black bg-[#dedede]" style="background-image: url('/ElDueto/JUEGO/CABEZAOMY.PNG');"></div>
+          <p class="font-['Alfa_Slab_One'] text-sm text-white group-hover:text-black uppercase transition-colors text-center w-full leading-tight">OMY</p>
         </div>
       </div>
     </div>
@@ -153,19 +188,22 @@
       </div>
     </div>
 
-    <div id="video-secreto" class="hidden mt-[50px] p-[20px] bg-[#050505] text-white border-[6px] border-[#ff0000] w-full text-center shadow-[12px_12px_0px_#000] transform rotate-1 relative overflow-hidden pointer-events-auto">
-      <h3 class="mt-0 font-['Alfa_Slab_One'] text-3xl md:text-4xl uppercase text-[#ff0000] tracking-[-1px] drop-shadow-[2px_2px_0px_#000]">¡MATERIAL DESBLOQUEADO!</h3>
-      
-      <div id="mensaje-agradecimiento" class="py-8 px-4 md:px-6 flex flex-col md:flex-row items-center justify-center gap-6 z-10 hidden">
+    <div id="video-secreto" class="hidden mt-[50px] p-[20px] bg-[#050505] text-white border-[6px] border-[#ff0000] w-full text-center shadow-[12px_12px_0px_#000] transform rotate-1 relative overflow-hidden pointer-events-auto">      
+      <div class="my-6 w-full max-w-[480px] mx-auto border-4 border-black shadow-[6px_6px_0px_#ff0000]">
+        <div class="relative w-full" style="padding-bottom: 56.25%;">
+          <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/QfTMS6ijeaI" title="Video Oficial El Dueto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="py-4 px-4 md:px-6 flex flex-col md:flex-row items-center justify-center gap-6 z-10">
         <div class="w-full md:w-1/2 max-w-[300px] zine-card-worn border-[4px] border-black p-2 shadow-[8px_8px_0px_#000] transform -rotate-2">
           <img src="/ElDueto/ELDUETO.jpg" alt="Portada El Dueto" class="w-full h-auto block border-2 border-black object-contain">
         </div>
 
         <div class="w-full md:w-1/2 flex flex-col items-center text-center">
-          <div class="mb-4 w-24 h-24 md:w-20 md:h-20 bg-contain bg-center bg-no-repeat filter invert brightness-0 opacity-80" style="background-image: url('/ElDueto/JUEGO/LOGO.PNG');"></div>
 
           <h4 class="font-['Alfa_Slab_One'] text-xl md:text-2xl text-[#dedede] uppercase tracking-wider leading-none drop-shadow-[3px_3px_0px_#000]">
-            ¡Nos vemos en el próximo volumen!
+            ¡Gracias por escuchar el Vol. 1!
           </h4>
 
           <div class="w-full max-w-[300px] mt-6 flex justify-end">
@@ -175,31 +213,12 @@
           </div>
         </div>
       </div>
-
-      <div id="mensaje-visto" class="hidden py-8 px-4 md:px-6 flex-col md:flex-row items-center justify-center gap-6 z-10">
-        <div class="w-full max-w-[400px] zine-card-worn text-black border-[4px] border-black p-6 shadow-[8px_8px_0px_#ff0000] transform rotate-1">
-          <h4 class="font-['Alfa_Slab_One'] text-2xl md:text-3xl uppercase tracking-tighter text-black leading-tight">
-            ¡YA VISUALIZASTE ESTE CONTENIDO!
-          </h4>
-          <p class="font-mono text-sm md:text-base uppercase font-bold mt-4 text-[#333] leading-relaxed">
-            Este material exclusivo ya fue visualizado en este dispositivo.
-          </p>
-        </div>
-      </div>
-
-      <div id="contenedor-reproductor" class="relative w-full aspect-video border-[4px] border-[#333] bg-black z-20 mt-6">
-        <video id="video-player" controls playsinline controlslist="nodownload" oncontextmenu="return false;" preload="auto" class="w-full h-full object-cover">
-          <source src="/video" type="video/mp4">
-            Tu navegador no soporta la reproduccion de video.
-          </video>
-      </div>
     </div>
 
   </div>
-</div>
+</section>
 
 <script is:inline>
-  // @ts-nocheck
   let animacionId = 0;
   let estadoJuego = 'inactivo';
 
@@ -210,17 +229,9 @@
     }
     estadoJuego = 'inactivo';
 
-    const btnPresave = document.getElementById('btn-presave');
-    const mensajeRegalo = document.getElementById('mensaje-regalo');
-    const btnIrPersonajes = document.getElementById('btn-ir-personajes');
-    const contenedorInicial = document.getElementById('contenedor-inicial');
     const contenedorPersonaje = document.getElementById('contenedor-personaje');
     const contenedorJuego = document.getElementById('contenedor-juego');
     const videoSecreto = document.getElementById('video-secreto'); 
-    const videoPlayer = document.getElementById('video-player'); 
-    const contenedorReproductor = document.getElementById('contenedor-reproductor');
-    const mensajeVisto = document.getElementById('mensaje-visto');
-    const mensajeAgradecimiento = document.getElementById('mensaje-agradecimiento');
     const canvas = document.getElementById('lienzo-juego');
     const textoPuntos = document.getElementById('texto-puntos');
     const textoNivel = document.getElementById('texto-nivel');
@@ -229,7 +240,7 @@
     const selP1 = document.getElementById('sel-p1');
     const selP2 = document.getElementById('sel-p2');
 
-    if (!btnPresave || !canvas || !videoSecreto) return;
+    if (!canvas || !videoSecreto) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -241,15 +252,18 @@
     let contadorFrames = 0;
     let anguloRotacion = 0;
 
-    let jugador = { x: canvas.width / 2 - 16, y: 40, ancho: 32, alto: 32, targetX: canvas.width / 2 - 16 };
+    let jugador = { x: canvas.width / 2 - 20, y: 40, ancho: 40, alto: 40, targetX: canvas.width / 2 - 20 };
     let obstaculos = [];
     let metaFinal = { y: -300, activa: false, completada: false };
 
     const imgPersonaje1 = new Image();
-    imgPersonaje1.src = '/ElDueto/JUEGO/niko.png';
+    imgPersonaje1.src = '/ElDueto/JUEGO/CABEZANIKO.PNG';
 
     const imgPersonaje2 = new Image();
-    imgPersonaje2.src = '/ElDueto/JUEGO/omy.png';
+    imgPersonaje2.src = '/ElDueto/JUEGO/CABEZAOMY.PNG';
+
+    const imgFondoJuego = new Image();
+    imgFondoJuego.src = '/ElDueto/JUEGO/FONDO/IMG_1785.png';
 
     const musicaFondo = new Audio('/ElDueto/JUEGO/RINGRING.mp3');
     musicaFondo.loop = true;
@@ -257,26 +271,6 @@
 
     const audioColision = new Audio('/ElDueto/JUEGO/YAMAMASTE.mp3');
     audioColision.volume = 0.2;
-
-    function mostrarAgradecimiento(elementoOcultar) {
-      if (elementoOcultar) elementoOcultar.style.display = 'none';
-      if (mensajeAgradecimiento) {
-        mensajeAgradecimiento.classList.remove('hidden');
-        mensajeAgradecimiento.classList.add('flex');
-      }
-    }
-
-    function mostrarMensajeVisto(elementoOcultar) {
-      if (elementoOcultar) elementoOcultar.style.display = 'none';
-      if (mensajeVisto) {
-        mensajeVisto.classList.remove('hidden');
-        mensajeVisto.classList.add('flex');
-      }
-    }
-
-    function marcarVideoComoVisto() {
-      localStorage.setItem('nsns_video_desbloqueado', 'true');
-    }
 
     let arrastrando = false;
 
@@ -348,7 +342,7 @@
       anguloRotacion = 0;
       obstaculos = [];
       metaFinal = { y: -300, activa: false, completada: false };
-      jugador.x = canvas.width / 2 - 16;
+      jugador.x = canvas.width / 2 - 20;
       jugador.targetX = jugador.x;
       jugador.y = 40;
       if (textoPuntos) textoPuntos.innerHTML = 'PTS: 0/150';
@@ -356,12 +350,12 @@
     }
 
     function generarObstaculo() {
-      let anchoHueco = 140;
-      if (nivel === 2) anchoHueco = 110;
-      if (nivel === 3) anchoHueco = 95;
+      let anchoHueco = 130;
+      if (nivel === 2) anchoHueco = 105;
+      if (nivel === 3) anchoHueco = 90;
 
-      const xMaxHueco = canvas.width - anchoHueco - 20;
-      const xHueco = Math.random() * (xMaxHueco - 20) + 20;
+      const xMaxHueco = canvas.width - anchoHueco - 15;
+      const xHueco = Math.random() * (xMaxHueco - 15) + 15;
       
       let velocidadLateral = 0;
       if (nivel === 2) velocidadLateral = Math.random() > 0.5 ? 1.0 : -1.0;
@@ -369,7 +363,7 @@
 
       obstaculos.push({
         y: canvas.height + 40,
-        alto: 28,
+        alto: 32,
         xHueco: xHueco,
         anchoHueco: anchoHueco,
         vx: velocidadLateral
@@ -403,25 +397,29 @@
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#3a2e2b';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      if (imgFondoJuego.complete && imgFondoJuego.naturalHeight !== 0) {
+        const imgAspect = imgFondoJuego.naturalWidth / imgFondoJuego.naturalHeight;
+        const canvasAspect = canvas.width / canvas.height;
+        
+        const zoom = 1; 
+        let renderW, renderH, offsetX, offsetY;
 
-      ctx.strokeStyle = '#1e1715';
-      ctx.lineWidth = 2;
-      let hLadrillo = 22;
-      let wLadrillo = 46;
-      for (let y = 0; y < canvas.height; y += hLadrillo) {
-        let offset = (y / hLadrillo) % 2 === 0 ? 0 : wLadrillo / 2;
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
-        ctx.stroke();
-        for (let x = offset; x < canvas.width; x += wLadrillo) {
-          ctx.beginPath();
-          ctx.moveTo(x, y);
-          ctx.lineTo(x, y + hLadrillo);
-          ctx.stroke();
+        if (imgAspect > canvasAspect) {
+          renderH = canvas.height * zoom;
+          renderW = renderH * imgAspect;
+          offsetX = (canvas.width - renderW) / 2;
+          offsetY = (canvas.height - renderH) / 2;
+        } else {
+          renderW = canvas.width * zoom;
+          renderH = renderW / imgAspect;
+          offsetX = (canvas.width - renderW) / 2;
+          offsetY = (canvas.height - renderH) / 2;
         }
+
+        ctx.drawImage(imgFondoJuego, offsetX, offsetY, renderW, renderH);
+      } else {
+        ctx.fillStyle = '#3a2e2b';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
 
       let difX = jugador.targetX - jugador.x;
@@ -535,8 +533,8 @@
       let imgActual = personajeSeleccionado === 1 ? imgPersonaje1 : imgPersonaje2;
       if (imgActual.complete && imgActual.naturalHeight !== 0) {
         let aspectRatio = imgActual.naturalWidth / imgActual.naturalHeight;
-        let renderAncho = jugador.alto * aspectRatio;
-        ctx.drawImage(imgActual, -renderAncho / 2, -jugador.alto / 2, renderAncho, jugador.alto);
+        let renderAncho = 45 * aspectRatio; 
+        ctx.drawImage(imgActual, -renderAncho / 2, -22, renderAncho, 45);
       } else {
         ctx.fillStyle = '#ff0000';
         ctx.fillRect(-jugador.ancho / 2, -jugador.alto / 2, jugador.ancho, jugador.alto);
@@ -552,66 +550,12 @@
         contenedorJuego.classList.add('hidden'); 
         videoSecreto.classList.remove('hidden');
         videoSecreto.classList.add('block'); 
-
-        const yaLoVio = localStorage.getItem('nsns_video_desbloqueado') === 'true';
-
-        if (yaLoVio) {
-          if (contenedorReproductor) contenedorReproductor.style.display = 'none';
-          mostrarMensajeVisto(null);
-          setTimeout(() => {
-            if (mensajeVisto) {
-              mensajeVisto.style.display = 'none';
-              mostrarAgradecimiento(null);
-            }
-          }, 5000);
-        } else {
-          if (videoPlayer) {
-            setTimeout(() => {
-              videoPlayer.play().then(() => {
-                marcarVideoComoVisto();
-              }).catch((err) => {
-                console.log("Autoplay prevenido. Requiere interacción manual.", err);
-                videoPlayer.addEventListener('play', marcarVideoComoVisto, { once: true });
-              });
-            }, 300);
-
-            videoPlayer.addEventListener('ended', function() {
-              mostrarAgradecimiento(contenedorReproductor);
-            });
-          }
-        }
         return;
       }
 
       if (estadoJuego === 'jugando') {
         animacionId = requestAnimationFrame(bucleJuego);
       }
-    }
-
-    const newBtn = btnPresave.cloneNode(true);
-    if (btnPresave.parentNode) {
-      btnPresave.parentNode.replaceChild(newBtn, btnPresave);
-    }
-
-    newBtn.addEventListener('click', function() {
-      newBtn.style.display = 'none';
-      const textoGancho = document.getElementById('texto-gancho');
-      if (textoGancho) textoGancho.style.display = 'none';
-      if (mensajeRegalo) {
-        mensajeRegalo.classList.remove('hidden');
-        mensajeRegalo.classList.add('block');
-      }
-    });
-
-    if (btnIrPersonajes) {
-      btnIrPersonajes.addEventListener('click', function() {
-        if (mensajeRegalo) mensajeRegalo.style.display = 'none';
-        if (contenedorInicial) contenedorInicial.style.display = 'none';
-        if (contenedorPersonaje) {
-          contenedorPersonaje.classList.remove('hidden');
-          contenedorPersonaje.classList.add('block');
-        }
-      });
     }
 
     function elegirPersonaje(num) {
