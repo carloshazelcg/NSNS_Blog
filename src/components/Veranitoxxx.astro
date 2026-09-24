@@ -1,0 +1,576 @@
+---
+// Veranitoxxx.astro
+
+const SPOTIFY_ALBUM_ID = "1EAw5tTjTKVBPehqljWXwu";
+const SPOTIFY_URL = `https://open.spotify.com/intl-es/album/${SPOTIFY_ALBUM_ID}`;
+const SPOTIFY_EMBED = `https://open.spotify.com/embed/album/${SPOTIFY_ALBUM_ID}?utm_source=generator&theme=0`;
+
+const APPLE_MUSIC_URL = "https://music.apple.com/mx/album/veranitoxxx-ep/6815145900";
+const APPLE_MUSIC_EMBED = "https://embed.music.apple.com/mx/album/veranitoxxx-ep/6815145900";
+
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFB8cs6kQ6n7emeS";
+
+const tracks = [
+  "TUS BESOS",
+  "ME QUEDA AMOR",
+  "MEDICINA",
+  "WEEKND",
+  "DONDE ESTÁS?",
+  "1MENSAJITO"
+];
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<!-- HEADER ESTILO MYSPACE -->
+<header class="relative z-20 border-b border-[#5a5a7a] bg-[#0f0f1e]">
+  <div class="bg-[#1a1a2e] border-b border-[#3a3a5a]">
+    <div class="max-w-6xl mx-auto px-3 md:px-4 py-2 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-1">
+        <img
+          src="/veranitoxxx/images/logonavbar.png"
+          alt="Veranitoxxx"
+          class="h-8 md:h-12 w-auto"
+        />
+        <span class="text-[#8a8a9a] text-[14px] md:text-xs">.com</span>
+      </div>
+      <div class="flex items-center gap-2 md:gap-3 text-[9px] md:text-xs text-[#8a9aba]">
+        <a href={SPOTIFY_URL} target="_blank" rel="noopener noreferrer" class="hover:text-[#d0d0d0]">Spotify</a>
+        <a href={APPLE_MUSIC_URL} target="_blank" rel="noopener noreferrer" class="hover:text-[#d0d0d0]">Apple Music</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-[#3a3a5a]">
+    <div class="max-w-6xl mx-auto px-3 md:px-4 flex items-center justify-between">
+      <nav class="flex items-center gap-0.5 md:gap-4 text-[8px] md:text-xs font-bold text-[#d0d0d0]">
+        <a href="#" class="px-1.5 md:px-3 py-2 hover:bg-[#4a4a6a] tracking-widest">HOME</a>
+        <a href="#ep" class="px-1.5 md:px-3 py-2 hover:bg-[#4a4a6a] tracking-widest">EP</a>
+        <a href="#album" class="px-1.5 md:px-3 py-2 hover:bg-[#4a4a6a] tracking-widest">FOTOS</a>
+        <a href="#comments" class="px-1.5 md:px-3 py-2 hover:bg-[#4a4a6a] tracking-widest">COMMENTS</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-2 text-[10px] text-[#8a9aba]">
+        <span>SEARCH</span>
+        <div class="w-32 h-5 bg-[#1a1a2e] border border-[#5a5a7a]"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="relative min-h-dvh overflow-hidden bg-[#4a4a5e] text-[#d0d0d0] font-[Arial,Verdana,sans-serif]">
+
+  <!-- PATRÓN DE SILUETAS DE PALMERAS -->
+  <div
+    aria-hidden="true"
+    class="absolute inset-0 pointer-events-none opacity-[0.10]"
+    style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M60 100 Q58 70 60 50 L62 50 Q62 70 60 100 Z'/%3E%3Cpath d='M61 50 Q40 40 30 50 Q45 42 61 50 Z'/%3E%3Cpath d='M61 50 Q45 30 35 32 Q48 35 61 50 Z'/%3E%3Cpath d='M61 50 Q50 20 55 10 Q57 25 61 50 Z'/%3E%3Cpath d='M61 50 Q82 40 92 50 Q77 42 61 50 Z'/%3E%3Cpath d='M61 50 Q77 30 87 32 Q74 35 61 50 Z'/%3E%3Cpath d='M61 50 Q72 20 67 10 Q65 25 61 50 Z'/%3E%3C/g%3E%3C/svg%3E&quot;); background-size: 120px 120px;"
+  ></div>
+
+  <!-- CARAS FLOTANDO DE FONDO -->
+  <div aria-hidden="true" class="absolute inset-0 pointer-events-none overflow-hidden">
+
+    <!-- ===== PARTE SUPERIOR ===== -->
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[3%] left-[1%] w-56 opacity-20 animate-bailar [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]" />
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[2%] right-[1%] w-56 opacity-20 animate-bailar [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]" />
+    <img src="/veranitoxxx/images/jotace.png" alt="" class="absolute top-[6%] left-[18%] w-28 opacity-18 animate-bailar grayscale [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/okjuls.png" alt="" class="absolute top-[5%] right-[20%] w-28 opacity-18 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[12%] left-[40%] w-40 opacity-15 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/omy.png" alt="" class="absolute top-[18%] left-[1%] w-28 opacity-18 animate-bailar grayscale [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/housek.png" alt="" class="absolute top-[18%] right-[1%] w-28 opacity-18 animate-bailar grayscale [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+
+    <!-- ===== PARTE MEDIA ===== -->
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[32%] left-[1%] w-40 opacity-18 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[32%] right-[1%] w-40 opacity-18 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/jotace.png" alt="" class="absolute top-[42%] left-[1%] w-32 opacity-20 animate-bailar grayscale [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/okjuls.png" alt="" class="absolute top-[42%] right-[1%] w-32 opacity-20 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[55%] left-[3%] w-36 opacity-18 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[55%] right-[3%] w-36 opacity-18 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+
+    <!-- ===== PARTE INFERIOR ===== -->
+    <img src="/veranitoxxx/images/omy.png" alt="" class="absolute top-[65%] left-[1%] w-28 opacity-20 animate-bailar grayscale [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/housek.png" alt="" class="absolute top-[65%] right-[1%] w-28 opacity-20 animate-bailar grayscale [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[72%] left-[2%] w-44 opacity-20 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[72%] right-[2%] w-44 opacity-20 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/jotace.png" alt="" class="absolute top-[82%] left-[2%] w-32 opacity-22 animate-bailar grayscale [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/okjuls.png" alt="" class="absolute top-[82%] right-[2%] w-32 opacity-22 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[90%] left-[1%] w-52 opacity-22 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/veranitoxxx.png" alt="" class="absolute top-[90%] right-[1%] w-52 opacity-22 animate-bailar [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/omy.png" alt="" class="absolute top-[96%] left-[20%] w-28 opacity-20 animate-bailar grayscale [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+    <img src="/veranitoxxx/images/housek.png" alt="" class="absolute top-[96%] right-[20%] w-28 opacity-20 animate-bailar grayscale [filter:drop-shadow(0_0_8px_rgba(255,255,255,0.15))]" />
+
+  </div>
+
+  <!-- RECUADRO PUBLICITARIO FLOTANTE (con modal) -->
+  <div
+    id="floating-ad"
+    class="absolute top-[8%] right-[2%] w-24 md:w-64 border border-[#5a5a7a] p-1 bg-[#1a1a2e] opacity-90 hover:opacity-100 transition-opacity z-20"
+  >
+    <button
+      id="close-ad"
+      type="button"
+      aria-label="Cerrar"
+      class="absolute -top-2 -right-2 w-5 h-5 md:w-6 md:h-6 bg-[#ff0099] text-white text-[10px] md:text-xs font-bold border border-[#5a5a7a] flex items-center justify-center hover:bg-[#ff3377] z-30"
+    >
+      ✕
+    </button>
+    <img
+      id="open-ad-modal"
+      src="/veranitoxxx/images/meme1.jpeg"
+      alt="Jota Ce"
+      class="w-full object-cover cursor-pointer"
+    />
+  </div>
+
+  <!-- MODAL PARA VER EN GRANDE -->
+  <div
+    id="ad-modal"
+    class="hidden fixed inset-0 z-50 bg-black/90 items-center justify-center p-4"
+  >
+    <button
+      id="close-modal"
+      type="button"
+      aria-label="Cerrar"
+      class="absolute top-4 right-4 w-10 h-10 bg-[#ff0099] text-white text-xl font-bold border-2 border-white flex items-center justify-center hover:bg-[#ff3377] z-50"
+    >
+      ✕
+    </button>
+    <img
+      src="/veranitoxxx/images/meme1.jpeg"
+      alt="Jota Ce"
+      class="max-w-full max-h-[90vh] object-contain"
+    />
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="relative z-10 px-2 md:px-4 py-4 md:py-12 max-w-6xl mx-auto">
+
+    <!-- MARQUESINA -->
+    <div class="mb-4 md:mb-6 border border-[#5a5a7a] bg-[#0f0f1e]/90 py-1.5 md:py-2 overflow-hidden">
+      <div class="marquee text-[10px] md:text-sm font-bold tracking-widest text-[#8a9aba]">
+        <span class="inline-block px-4">★ VERANITOXXX YA DISPONIBLE ★ VERANITOXXX YA DISPONIBLE ★ VERANITOXXX YA DISPONIBLE ★</span>
+      </div>
+    </div>
+
+    <!-- TÍTULO CON PALMERAS -->
+    <div class="relative w-full flex items-center justify-center mb-6 md:mb-16 py-6 md:py-12">
+
+      <img
+        src="/veranitoxxx/gifs/playa-01.gif"
+        alt="Palmeras"
+        class="absolute left-0 md:left-[8%] top-1/2 -translate-y-1/2 w-8 md:w-32 pointer-events-none opacity-70"
+      />
+
+      <img
+        src="/veranitoxxx/gifs/playa-01.gif"
+        alt="Palmeras"
+        class="absolute right-0 md:right-[8%] top-1/2 -translate-y-1/2 w-8 md:w-32 pointer-events-none scale-x-[-1] opacity-70"
+      />
+
+      <h1
+        class="relative z-10 text-base md:text-5xl tracking-widest text-center
+        text-[#e8e8e8]
+        [font-family:'Press_Start_2P',monospace]
+        [text-shadow:2px_2px_0_#6a2a5a,4px_4px_0_#2a5a6a] md:[text-shadow:3px_3px_0_#6a2a5a,6px_6px_0_#2a5a6a]"
+      >
+        VERANITOXXX
+      </h1>
+    </div>
+
+    <!-- GRID DE DOS COLUMNAS TIPO MYSPACE (mantenido en móvil) -->
+    <div class="grid grid-cols-2 md:grid-cols-[320px_1fr] gap-2 md:gap-6 mb-6 md:mb-12">
+
+      <!-- ═══ COLUMNA IZQUIERDA ═══ -->
+      <div class="space-y-2 md:space-y-6">
+
+        <!-- WIDGET: PERFIL -->
+        <div id="ep" class="border border-[#5a5a7a] bg-[#0f0f1e]/90">
+          <div class="bg-[#3a3a5a] text-[#d0d0d0] px-1.5 md:px-3 py-0.5 md:py-1 text-[8px] md:text-xs font-bold tracking-widest">
+            JOTA CE
+          </div>
+          <div class="p-1.5 md:p-3">
+            <div class="border border-[#5a5a7a] p-0.5 md:p-1 bg-[#1a1a2e] mb-1.5 md:mb-3">
+              <img
+                src="/veranitoxxx/images/portada-ep.png"
+                alt="Portada Veranitoxxx"
+                class="w-full object-cover"
+              />
+            </div>
+            <p class="text-[#8a8a9a] text-[7px] md:text-xs mb-0.5 md:mb-1">Último login: Hoy</p>
+            <p class="text-[#6a8a6a] text-[7px] md:text-xs mb-1.5 md:mb-3">● En línea</p>
+            <p class="text-[#b0b0b0] text-[7px] md:text-xs leading-snug md:leading-relaxed mb-2 md:mb-4">
+              Verano 2026
+            </p>
+            <a
+              href={SPOTIFY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block text-center px-1.5 md:px-3 py-1 md:py-2 border border-[#4a7a4a] bg-[#2a4a2a] text-[#c0e0c0] font-bold text-[7px] md:text-xs tracking-widest hover:bg-[#3a5a3a] transition-colors"
+            >
+              [+] ADD ME
+            </a>
+          </div>
+        </div>
+
+        <!-- WIDGET: CURRENTLY LISTENING TO (SPOTIFY) -->
+        <div class="border border-[#3a5a3a] bg-[#0f0f1e]/90">
+          <div class="bg-[#3a5a3a] text-[#d0d0d0] px-1.5 md:px-3 py-0.5 md:py-1 text-[8px] md:text-xs font-bold tracking-widest">
+            ♫ SPOTIFY
+          </div>
+          <div class="p-1 md:p-2">
+            <iframe
+              src={SPOTIFY_EMBED}
+              width="100%"
+              height="152"
+              frameborder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              class="w-full md:hidden"
+            ></iframe>
+            <iframe
+              src={SPOTIFY_EMBED}
+              width="100%"
+              height="380"
+              frameborder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              class="w-full hidden md:block"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- WIDGET: CURRENTLY LISTENING TO (APPLE MUSIC) -->
+        <div class="border border-[#3a3a5a] bg-[#0f0f1e]/90">
+          <div class="bg-[#3a3a5a] text-[#d0d0d0] px-1.5 md:px-3 py-0.5 md:py-1 text-[8px] md:text-xs font-bold tracking-widest">
+            ♫ APPLE MUSIC
+          </div>
+          <div class="p-1 md:p-2 flex justify-center">
+            <iframe
+              allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+              frameborder="0"
+              height="152"
+              style="width:100%;overflow:hidden;border-radius:10px;"
+              sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+              src={APPLE_MUSIC_EMBED}
+              class="md:hidden"
+            ></iframe>
+            <iframe
+              allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+              frameborder="0"
+              height="450"
+              style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;"
+              sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+              src={APPLE_MUSIC_EMBED}
+              class="hidden md:block"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- WIDGET: PHOTO ALBUM (con corazones) -->
+        <div id="album" class="border border-[#5a5a7a] bg-[#0f0f1e]/90">
+          <div class="bg-[#3a3a5a] text-[#d0d0d0] px-1.5 md:px-3 py-0.5 md:py-1 text-[8px] md:text-xs font-bold tracking-widest">
+            PHOTO ALBUM
+          </div>
+          <div class="p-1.5 md:p-3 grid grid-cols-2 gap-1.5 md:gap-3">
+
+            <div class="relative flex items-center justify-center aspect-square">
+              <img src="/veranitoxxx/gifs/corazon-01.gif" alt="" class="absolute inset-0 m-auto w-full h-full object-contain opacity-70 pointer-events-none" />
+              <img src="/veranitoxxx/images/jotace.png" alt="Jota Ce" class="relative z-10 w-3/4 h-3/4 object-contain animate-bailar grayscale [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]" />
+            </div>
+
+            <div class="relative flex items-center justify-center aspect-square">
+              <img src="/veranitoxxx/gifs/corazon-01.gif" alt="" class="absolute inset-0 m-auto w-full h-full object-contain opacity-70 pointer-events-none" />
+              <img src="/veranitoxxx/images/okjuls.png" alt="OkJuls" class="relative z-10 w-3/4 h-3/4 object-contain animate-bailar [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]" />
+            </div>
+
+            <div class="relative flex items-center justify-center aspect-square">
+              <img src="/veranitoxxx/gifs/corazon-01.gif" alt="" class="absolute inset-0 m-auto w-full h-full object-contain opacity-70 pointer-events-none" />
+              <img src="/veranitoxxx/images/omy.png" alt="Omy" class="relative z-10 w-3/4 h-3/4 object-contain animate-bailar grayscale [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]" />
+            </div>
+
+            <div class="relative flex items-center justify-center aspect-square">
+              <img src="/veranitoxxx/gifs/corazon-01.gif" alt="" class="absolute inset-0 m-auto w-full h-full object-contain opacity-70 pointer-events-none" />
+              <img src="/veranitoxxx/images/housek.png" alt="Housek" class="relative z-10 w-3/4 h-3/4 object-contain animate-bailar grayscale [filter:drop-shadow(0_0_10px_rgba(255,255,255,0.2))]" />
+            </div>
+
+          </div>
+        </div>
+
+        <!-- WIDGET: PUBLICIDAD 3 (en flujo) -->
+        <div class="border border-[#5a5a7a] bg-[#0f0f1e]/90">
+          <div class="p-0.5 md:p-1">
+            <img src="/veranitoxxx/images/meme3.jpeg" alt="Meme 3" class="w-full object-cover" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ═══ COLUMNA DERECHA ═══ -->
+      <div class="space-y-2 md:space-y-6">
+
+        <!-- WIDGET: INFO DEL EP -->
+        <div class="border border-[#5a5a7a] bg-[#0f0f1e]/90">
+          <div class="bg-[#3a3a5a] text-[#d0d0d0] px-1.5 md:px-3 py-0.5 md:py-1 text-[8px] md:text-xs font-bold tracking-widest">
+            VERANITOXXX
+          </div>
+          <div class="p-1.5 md:p-4">
+            <p class="text-[#b0b0b0] mb-2 md:mb-4 leading-snug md:leading-relaxed text-[8px] md:text-sm">
+              El EP más veraniego del otoño. Seis tracks para proyectarte. <br>
+              Producido con mucho amor para ti de parte de Jota Ce y toda la #NSNS 
+            </p>
+            <a
+              href={SPOTIFY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block px-2 md:px-4 py-1 md:py-2 border border-[#4a7a4a]
+              bg-[#2a4a2a] text-[#c0e0c0] font-bold text-[8px] md:text-sm tracking-wider
+              hover:bg-[#3a5a3a] transition-colors"
+            >
+              ▶ SPOTIFY
+            </a>
+          </div>
+        </div>
+
+        <!-- WIDGET: CANCIÓN DESTACADA (ROTADOR) -->
+        <div class="border border-[#5a5a7a] bg-[#0f0f1e]/90">
+          <div class="bg-[#3a3a5a] text-[#d0d0d0] px-1.5 md:px-3 py-0.5 md:py-1 text-[8px] md:text-xs font-bold tracking-widest">
+            ★ DESTACADA
+          </div>
+          <div class="p-1.5 md:p-4 flex flex-col md:flex-row gap-1.5 md:gap-4 items-center">
+            <a href={SPOTIFY_URL} target="_blank" rel="noopener noreferrer" class="border border-[#5a5a7a] p-0.5 md:p-1 bg-[#1a1a2e] shrink-0">
+              <img
+                src="/veranitoxxx/images/portada-ep.png"
+                alt="Portada"
+                class="w-16 h-16 md:w-32 md:h-32 object-cover"
+              />
+            </a>
+            <div class="flex-1 text-center md:text-left">
+              <p class="text-[#8a8a9a] text-[7px] md:text-xs mb-0.5 md:mb-1">Ahora destacando:</p>
+              <p id="track-name" class="text-[#e8e8e8] font-black text-[10px] md:text-2xl tracking-widest mb-1.5 md:mb-3">
+                TUS BESOS
+              </p>
+              <a
+                href={SPOTIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block px-2 md:px-4 py-0.5 md:py-2 border border-[#4a7a4a] bg-[#2a4a2a] text-[#c0e0c0] font-bold text-[7px] md:text-xs tracking-widest hover:bg-[#3a5a3a] transition-colors"
+              >
+                ▶ PLAY
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WIDGET: BLOG -->
+        <div class="border border-[#5a5a7a] bg-[#0f0f1e]/90">
+          <div class="bg-[#3a3a5a] text-[#d0d0d0] px-1.5 md:px-3 py-0.5 md:py-1 text-[8px] md:text-xs font-bold tracking-widest">
+            BLOG
+          </div>
+          <div class="p-1.5 md:p-4 space-y-2 md:space-y-4 text-[8px] md:text-sm">
+            <div class="border-l-2 border-[#6a6a8a] pl-1.5 md:pl-3">
+              <p class="text-[#c8c8c8] font-bold mb-0.5 md:mb-1">Gracias</p>
+              <p class="text-[#a0a0a0] mb-0.5 md:mb-1 italic">
+                Estoy profundamente feliz por el recibiendo que ha tenido el proyecto, no hay palabras que describan lo lindo que siento mi conexión con ustedes, más aún siendo otoño recibiendo el verano jeje. Pase por momentos raros durante el desarrollo de este EP, pero nunca me sentí solo por ustedes. No me queda nada más que agradecerles por ser una familia de proyectados, seguiré trabajando para darles lo mejor de mi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- WIDGET: PUBLICIDAD 2 (en flujo) -->
+        <div class="border border-[#5a5a7a] bg-[#0f0f1e]/90">
+          <div class="p-0.5 md:p-1 flex justify-center">
+            <img src="/veranitoxxx/images/meme2.jpeg" alt="Meme 2" class="w-full max-w-[200px] md:max-w-xs object-cover" />
+          </div>
+        </div>
+
+        <!-- WIDGET: COMENTARIOS ESTILO GUESTBOOK -->
+        <div id="comments" class="border border-[#5a5a7a] bg-[#0f0f1e]/90">
+          <div class="bg-[#3a3a5a] text-[#d0d0d0] px-1.5 md:px-3 py-0.5 md:py-1 text-[8px] md:text-xs font-bold tracking-widest">
+            COMMENTS (Las respuestas serán publicadas en la página).
+          </div>
+          <div class="p-1.5 md:p-4">
+
+            <div id="comments-list" class="space-y-2 md:space-y-4 mb-3 md:mb-6 max-h-96 overflow-y-auto">
+              <p class="text-[#6a6a7a] text-[8px] md:text-xs">Cargando comentarios...</p>
+            </div>
+
+            <form id="comment-form" class="space-y-1.5 md:space-y-3 border-t border-dashed border-[#3a3a5a] pt-2 md:pt-4">
+              <input
+                type="text"
+                name="author"
+                placeholder="Tu nombre o @ de Instagram."
+                required
+                maxlength="50"
+                class="w-full px-1.5 md:px-3 py-1 md:py-2 bg-[#1a1a2e] border border-[#5a5a7a] text-[#d0d0d0] text-[8px] md:text-xs focus:outline-none focus:border-[#8a9aba]"
+              />
+              <textarea
+                name="body"
+                placeholder="¿Que te pareció Veranitoxxx? Escribe tu comentario..."
+                required
+                maxlength="500"
+                rows="3"
+                class="w-full px-1.5 md:px-3 py-1 md:py-2 bg-[#1a1a2e] border border-[#5a5a7a] text-[#d0d0d0] text-[8px] md:text-xs focus:outline-none focus:border-[#8a9aba] resize-none"
+              ></textarea>
+
+              <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
+
+              <button
+                type="submit"
+                class="px-2 md:px-4 py-1 md:py-2 border border-[#4a7a4a] bg-[#2a4a2a] text-[#c0e0c0] font-bold text-[8px] md:text-xs tracking-wider hover:bg-[#3a5a3a] transition-colors"
+              >
+                ENVIAR
+              </button>
+            </form>
+
+            <p id="form-message" class="text-[8px] md:text-xs mt-1.5 md:mt-3 hidden"></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<script is:inline define:vars={{ tracks }}>
+  const trackEl = document.getElementById('track-name');
+  if (trackEl) {
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % tracks.length;
+      trackEl.textContent = tracks[idx];
+    }, 5000);
+  }
+
+  async function loadComments() {
+    const list = document.getElementById('comments-list');
+    try {
+      const res = await fetch('/api/comments');
+      const comments = await res.json();
+
+      if (!Array.isArray(comments) || comments.length === 0) {
+        list.innerHTML = '<p class="text-[#6a6a7a] text-[8px] md:text-xs">Sé el primero en comentar</p>';
+        return;
+      }
+
+      list.innerHTML = comments.map(c => `
+        <div class="border-b border-dashed border-[#3a3a5a] pb-1.5 md:pb-3">
+          <div class="flex items-center gap-1 md:gap-2 mb-0.5 md:mb-1">
+            <div class="w-4 h-4 md:w-6 md:h-6 bg-[#3a3a5a] border border-[#5a5a7a] flex items-center justify-center text-[7px] md:text-[10px] text-[#8a9aba] font-bold">
+              ${escapeHtml(c.author).charAt(0).toUpperCase()}
+            </div>
+            <p class="text-[#8a9aba] font-bold text-[8px] md:text-xs">${escapeHtml(c.author)}</p>
+            <p class="text-[#6a6a7a] text-[7px] md:text-[10px]">${new Date(c.created_at).toLocaleDateString('es-MX')}</p>
+          </div>
+          <p class="text-[#a0a0a0] text-[8px] md:text-xs pl-5 md:pl-8">${escapeHtml(c.body)}</p>
+        </div>
+      `).join('');
+    } catch (e) {
+      list.innerHTML = '<p class="text-red-400 text-[8px] md:text-xs">Error al cargar comentarios</p>';
+    }
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  const form = document.getElementById('comment-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const message = document.getElementById('form-message');
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch('/api/comments', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+
+        message.classList.remove('hidden');
+        if (res.ok) {
+          message.textContent = '✓ Comentario enviado. Pendiente de aprobación.';
+          message.className = 'text-[8px] md:text-xs mt-1.5 md:mt-3 text-[#8aba8a]';
+          form.reset();
+          if (window.turnstile) window.turnstile.reset();
+        } else {
+          message.textContent = '✗ ' + (data.error || 'Error al enviar');
+          message.className = 'text-[8px] md:text-xs mt-1.5 md:mt-3 text-red-400';
+        }
+      } catch (e) {
+        message.textContent = '✗ Error de conexión';
+        message.className = 'text-[8px] md:text-xs mt-1.5 md:mt-3 text-red-400';
+        message.classList.remove('hidden');
+      }
+    });
+  }
+
+  loadComments();
+</script>
+
+<script is:inline>
+  const floatingAd = document.getElementById('floating-ad');
+  const adModal = document.getElementById('ad-modal');
+  const openAdBtn = document.getElementById('open-ad-modal');
+  const closeAdBtn = document.getElementById('close-ad');
+  const closeModalBtn = document.getElementById('close-modal');
+
+  if (floatingAd && adModal && openAdBtn && closeAdBtn && closeModalBtn) {
+    openAdBtn.addEventListener('click', () => {
+      adModal.classList.remove('hidden');
+      adModal.classList.add('flex');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      adModal.classList.add('hidden');
+      adModal.classList.remove('flex');
+    });
+
+    adModal.addEventListener('click', (e) => {
+      if (e.target === adModal) {
+        adModal.classList.add('hidden');
+        adModal.classList.remove('flex');
+      }
+    });
+
+    closeAdBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      floatingAd.remove();
+      adModal.classList.add('hidden');
+      adModal.classList.remove('flex');
+    });
+  }
+</script>
+
+<style>
+  @keyframes bailar {
+    0%   { transform: rotate(-8deg) translateY(0); }
+    25%  { transform: rotate(0deg)  translateY(-4px); }
+    50%  { transform: rotate(8deg)  translateY(0); }
+    75%  { transform: rotate(0deg)  translateY(-4px); }
+    100% { transform: rotate(-8deg) translateY(0); }
+  }
+
+  .animate-bailar {
+    animation: bailar 1.6s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+
+  @keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 18s linear infinite;
+  }
+</style>

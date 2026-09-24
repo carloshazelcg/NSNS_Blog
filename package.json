@@ -16,7 +16,11 @@
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^7.1.6",
     "gsap": "^3.15.0",
-    "tailwindcss": "^4.2.2",
-    "wrangler": "^4.118.0"
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "workerd": "^1.20260924.1",
+    "wrangler": "^4.137.0"
   }
 }

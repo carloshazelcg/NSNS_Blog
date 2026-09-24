@@ -1,10 +1,13 @@
 {
-  "name": "nsnsblog",
-  "compatibility_date": "2024-04-03",
-  "r2_buckets": [
+  "name": "veranitoxxx",
+  "compatibility_date": "2026-08-06",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
     {
-      "binding": "MY_BUCKET",
-      "bucket_name": "videoeldueto"
+      "binding": "DB",
+      "database_name": "veranitoxxx-comments",
+      "database_id": "b7f3b862-f7b5-478f-9c62-ca0e9024cb95",
+      "migrations_dir": "migrations"
     }
   ]
 }
